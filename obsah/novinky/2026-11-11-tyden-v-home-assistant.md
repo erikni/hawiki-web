@@ -31,9 +31,9 @@ To je užitečné při hledání závady, ale jde i o možnost zasahovat do dom�
 
 ## Opravy pro Shelly a UniFi, HAOS 18.5 pro Raspberry Pi
 
-Core 2026.11.1 z 9. listopadu opravuje situaci, kdy se u obnoveného spícího Shelly RPC zařízení po probuzení nepřidaly nové entity. Součástí je také aktualizace knihovny `aiounifi` na verzi 98; poznámky k vydání však z této položky samy o sobě nedokládají novou funkci UniFi Network nebo Protect.
+Core 2026.11.1 z 9.11 opravuje situaci, kdy se u obnoveného spícího Shelly RPC zařízení po probuzení nepřidaly nové entity. Součástí je také aktualizace knihovny `aiounifi` na verzi 98; poznámky k vydání však z této položky samy o sobě nedokládají novou funkci UniFi Network nebo Protect.
 
-Home Assistant OS 18.5 vyšel 6. listopadu. Pro Raspberry Pi a Home Assistant Yellow aktualizuje jádro na 6.18.59 kvůli opravě CVE-2026-98432 v síťové části Linuxu. Ostatní platformy dostaly opravu už v HAOS 18.4. Podle autorů nebylo známé rozsáhlé zneužívání, aktualizaci ale zvlášť doporučují systémům přímo vystaveným internetu nebo nedůvěryhodné síti.
+Home Assistant OS 18.5 vyšel 6.11. Pro Raspberry Pi a Home Assistant Yellow aktualizuje jádro na 6.18.59 kvůli opravě CVE-2026-98432 v síťové části Linuxu. Ostatní platformy dostaly opravu už v HAOS 18.4. Podle autorů nebylo známé rozsáhlé zneužívání, aktualizaci ale zvlášť doporučují systémům přímo vystaveným internetu nebo nedůvěryhodné síti.
 
 V kontrolovaných zdrojích jsme pro tento týden nedoložili novou stabilní verzi firmwaru Shelly; verze 2.2.0 zůstávala v části beta. Na oficiálním blogu nepřibylo nové partnerství Works with Home Assistant ani nový vlastní hardware Home Assistant.
 
