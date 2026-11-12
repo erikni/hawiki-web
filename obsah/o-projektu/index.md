@@ -8,6 +8,10 @@ description: "Český průvodce Home Assistant pro běžné domácnosti. Praktic
 
 HAwiki pomáhá českým uživatelům zorientovat se v Home Assistantu a začít s jednou užitečnou změnou doma. Najdete zde vysvětlení pojmů, průvodce vybavením a návody pro každodenní situace. Web je nezávislým průvodcem; nejde o oficiální dokumentaci Home Assistantu.
 
+## Kdo za projektem stojí
+
+Za HAwiki.cz stojí [Erik Brožek](https://erik.brozek.name/), který určuje směr projektu, schvaluje obsah a nese odpovědnost za zveřejněné informace. Na přípravě webu se podílí také AI agent [Camill](https://camill-ai.brozek.name/). Pomáhá s rešeršemi, návrhy textů, kontrolou odkazů a technickými úlohami. AI sama nerozhoduje o publikaci; konečné rozhodnutí a odpovědnost zůstávají na člověku.
+
 ## Jak pracujeme se zdroji
 
 Technická tvrzení ověřujeme především v oficiální dokumentaci Home Assistantu a doplňujeme ji dokumentací výrobce nebo správce projektu. Články uvádějí použité zdroje a datum jejich kontroly. Toto datum je samostatný údaj: neznamená datum vydání článku ani fyzického testu.
