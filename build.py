@@ -40,6 +40,12 @@ PRACTICAL_ARTICLES = {
     "navody/lampa-vecer",
     "pomoc/zalohovani",
 }
+HOMEPAGE_INTEGRATIONS = [
+    ("Google Kalendář", "integrace/google-calendar-home-assistant"),
+    ("MQTT", "integrace/mqtt-home-assistant"),
+    ("SmartThings", "integrace/smartthings-home-assistant"),
+    ("Sonos", "integrace/sonos-home-assistant"),
+]
 
 
 def render_template(name: str, **values: str) -> str:
@@ -263,6 +269,16 @@ def write_sections(pages: list[dict[str, str]]) -> None:
         title = settings.get("heading", title)
         description = settings.get("description", description)
         section_pages = [page for page in pages if page["slug"].startswith(key + "/")]
+        section_extra = ""
+        if key == "navody":
+            section_extra = (
+                '<section class="directory-callout" aria-labelledby="navody-integrace">'
+                '<div><span class="eyebrow">PROPOJENÍ ZAŘÍZENÍ A SLUŽEB</span>'
+                '<h2 id="navody-integrace">Hledáte konkrétní integraci?</h2>'
+                '<p>Vyberte zařízení nebo službu a zjistěte, jak je propojit s Home Assistantem.</p>'
+                '</div><a class="button" href="/integrace/">Prohlédnout integrace →</a>'
+                '</section>'
+            )
         body = render_template(
             "section",
             title=html.escape(title),
@@ -270,6 +286,7 @@ def write_sections(pages: list[dict[str, str]]) -> None:
             cards=render_cards(section_pages),
             breadcrumbs=render_breadcrumbs(key, title),
             learning_path=render_learning_path(pages) if key == "zaciname" else "",
+            section_extra=section_extra,
         )
         write_page(key, settings.get("title", title), description, body,
                    breadcrumb_title=title)
@@ -277,9 +294,19 @@ def write_sections(pages: list[dict[str, str]]) -> None:
 
 def write_homepage(pages: list[dict[str, str]]) -> None:
     """Generate the homepage with beginner guides and selected practical articles."""
+    page_slugs = {page["slug"] for page in pages}
+    missing_integrations = [
+        slug for _, slug in HOMEPAGE_INTEGRATIONS if slug not in page_slugs
+    ]
+    if missing_integrations:
+        raise ValueError(
+            "Homepage integration links reference missing articles: "
+            + ", ".join(missing_integrations)
+        )
     body = render_template(
         "home",
         topic_links=render_topic_links(),
+        integration_links=render_link_list(HOMEPAGE_INTEGRATIONS),
         use_cases=render_link_list(SEO["useCases"]),
         starter_cards=render_cards(
             [page for page in pages if page["slug"].startswith("zaciname/")]

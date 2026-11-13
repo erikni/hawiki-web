@@ -132,3 +132,12 @@ nav.crumb{display:block;width:auto;margin:25px 0;font-size:13px;white-space:norm
 .topic-label a{color:inherit;text-decoration:underline}a:focus-visible{outline:3px solid #0879a6;outline-offset:4px}
 @media(max-width:1000px){.link-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:650px){.hero-claim{font-size:43px}.hero .hero-seo-heading{font-size:21px}.link-grid,.learning-path ol{grid-template-columns:1fr}.crumb{overflow-wrap:anywhere}.house{min-width:0}}
+
+/* Rozcestníky integrací a úplná navigace v patičce. */
+.integration-directory{padding-top:4px}.directory-intro{max-width:680px;color:var(--muted);margin-top:-10px}
+.directory-callout{display:flex;align-items:center;justify-content:space-between;gap:28px;padding:28px;margin:5px 0 38px;background:#e6f5fc;border:1px solid #c9e7f5;border-radius:8px}
+.directory-callout h2{font-size:27px;margin:7px 0}.directory-callout p{color:var(--muted);margin:0}.directory-callout .button{flex:0 0 auto}
+footer{display:grid;grid-template-columns:minmax(220px,1.35fr) repeat(3,minmax(140px,1fr));gap:35px;padding-top:36px;padding-bottom:36px}
+.footer-nav,.footer-info{display:flex;flex-direction:column;align-items:flex-start;gap:7px;margin:0}.footer-nav strong,.footer-info strong{color:var(--ink);font-size:13px;margin-bottom:3px}.footer-info br{display:none}
+@media(max-width:900px){footer{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){.directory-callout{align-items:flex-start;flex-direction:column;padding:22px}.directory-callout .button{width:100%;justify-content:space-between}footer{display:grid;grid-template-columns:1fr;gap:25px}footer .footer-nav{order:0;width:auto;padding-bottom:0;overflow:visible;white-space:normal}}
