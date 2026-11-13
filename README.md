@@ -1,4 +1,4 @@
-# HAwiki.cz
+# HA wiki
 
 Statický český průvodce Home Assistant pro běžné domácnosti.
 
