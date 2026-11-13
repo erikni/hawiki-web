@@ -26,21 +26,21 @@ Deset úvodních článků vychází z odkazované dokumentace. Postupy nebyly v
 
 ## Doména a barvy
 
-Cílová adresa je https://www.hawiki.cz a je nastavena v `site.json`. Generátor ji používá v kanonických adresách jednotlivých stránek. DNS a hosting musí být připojeny samostatně. Produkční hosting zajišťuje Cloudflare Worker `hawiki-cz` se statickými aktivy. Konfigurace Workeru je v `wrangler.jsonc`.
+Cílová adresa je https://www.hawiki.cz a je nastavena v `site.json`. Generátor ji používá v kanonických adresách jednotlivých stránek. DNS a hosting musí být připojeny samostatně. Produkční hosting zajišťuje Cloudflare Worker `hawiki-web` se statickými aktivy. Konfigurace Workeru je v `wrangler.jsonc`.
 
 Hlavní barva je Home Assistant modrá `#18BCF2`; textové odkazy používají tmavší `#0879A6` pro lepší čitelnost. Zdroj palety: https://github.com/home-assistant/frontend/blob/dev/src/resources/theme/color/core.globals.ts
 
 ## Zdrojový repozitář
 
-https://github.com/erikni/HAwiki.cz obsahuje pouze zdroje, Markdown články a podklady. `dist/` s hotovým HTML, stažené knihovny `.vendor/` a lokální hostingové nastavení se do něj nenahrávají.
+https://github.com/erikni/hawiki-web obsahuje pouze zdroje, Markdown články a podklady. `dist/` s hotovým HTML, stažené knihovny `.vendor/` a lokální hostingové nastavení se do něj nenahrávají.
 
 ## Cloudflare Workers
 
-Produkční Worker se jmenuje `hawiki-cz`. Soubor `wrangler.jsonc` určuje název Workeru a adresář `dist/` se statickými aktivy. Produkční workflow `.github/workflows/deploy-cloudflare-workers.yml` sestaví a zkontroluje web a pouze z větve `main` spustí `wrangler deploy`.
+Produkční Worker se jmenuje `hawiki-web`. Soubor `wrangler.jsonc` určuje název Workeru a adresář `dist/` se statickými aktivy. Produkční workflow `.github/workflows/deploy-cloudflare-workers.yml` sestaví a zkontroluje web a pouze z větve `main` spustí `wrangler deploy`.
 
-Workflow `.github/workflows/preview-cloudflare-workers.yml` se spouští pro pull requesty ze stejného repozitáře. Příkaz `wrangler preview --name pr-<číslo-PR>` vytvoří oddělené Workers Preview bez změny produkčního provozu. Skutečnou URL zveřejní Cloudflare Wrangler Action v GitHub Deployment a souhrnu běhu. Očekávaný vzor je `*-hawiki-cz.gemini77.workers.dev`; před schválením mergu je nutné ověřit konkrétní adresu.
+Workflow `.github/workflows/preview-cloudflare-workers.yml` se spouští pro pull requesty ze stejného repozitáře. Příkaz `wrangler preview --name pr-<číslo-PR>` vytvoří oddělené Workers Preview bez změny produkčního provozu. Skutečnou URL zveřejní Cloudflare Wrangler Action v GitHub Deployment a souhrnu běhu. Očekávaný vzor je `*-hawiki-web.gemini77.workers.dev`; před schválením mergu je nutné ověřit konkrétní adresu.
 
-V GitHub repozitáři nastavte secret `CLOUDFLARE_API_TOKEN`. Token musí mít oprávnění upravovat Workers Scripts v účtu, ve kterém je Worker `hawiki-cz`. Veřejné ID účtu je uvedeno ve workflow; API token se nesmí zapisovat do repozitáře.
+V GitHub repozitáři nastavte secret `CLOUDFLARE_API_TOKEN`. Token musí mít oprávnění upravovat Workers Scripts v účtu, ve kterém je Worker `hawiki-web`. Veřejné ID účtu je uvedeno ve workflow; API token se nesmí zapisovat do repozitáře.
 
 Sestavení zajišťuje `sh build-cloudflare.sh`: nainstaluje knihovny, převede Markdown do HTML a spustí místní kontroly. Při chybě workflow skončí s nenulovým návratovým kódem. Vygenerovaný adresář `dist/` zůstává mimo Git.
 
