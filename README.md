@@ -6,7 +6,7 @@ Statický český průvodce Home Assistant pro běžné domácnosti.
 
 ```sh
 python3 -m pip install --target .vendor -r requirements.txt
-python3 build.py
+python3 tools/build.py
 python3 -m http.server 8000 --directory dist
 ```
 
@@ -14,9 +14,9 @@ Otevřete http://localhost:8000. Výstup v `dist/` lze hostovat jako běžný st
 
 ## Úpravy obsahu
 
-Články jsou v `obsah/`. Adresář a název Markdown souboru určují adresu článku. Každý článek začíná YAML metadaty: title, description, cas, obtiznost, kontrola_zdroju a stav. Nepoužívejte označení „otestováno“, pokud postup nebyl skutečně ověřen na zařízení.
+Články jsou v `content/`. Adresář a název Markdown souboru určují adresu článku. Každý článek začíná YAML metadaty: title, description, cas, obtiznost, kontrola_zdroju a stav. Nepoužívejte označení „otestováno“, pokud postup nebyl skutečně ověřen na zařízení.
 
-Šablonu článku najdete v `sablony/navod.md`. Vzhled a vyhledávání jsou v `assets/`. Zdrojové HTML šablony společného rozložení, článků, karet a rozcestníků jsou v `sablony/`; nejde o vygenerované stránky. Jejich naplnění obsahem zajišťuje `build.py`. Po úpravě znovu spusťte sestavení. Hlavní stránka používá zvolený seznam článků; nové články se automaticky objeví v příslušné sekci a vyhledávání.
+Šablonu článku najdete v `sablony/navod.md`. Vzhled a vyhledávání jsou v `assets/`. Zdrojové HTML šablony společného rozložení, článků, karet a rozcestníků jsou v `sablony/`; nejde o vygenerované stránky. Jejich naplnění obsahem zajišťuje `tools/build.py`. Po úpravě znovu spusťte sestavení. Hlavní stránka používá zvolený seznam článků; nové články se automaticky objeví v příslušné sekci a vyhledávání.
 
 Vyhledávání používá malý JavaScript a neodesílá dotazy na server. Bez JavaScriptu zůstává navigace a čtení článků funkční.
 
@@ -50,11 +50,11 @@ Dokumentace: https://developers.cloudflare.com/workers/static-assets/ a https://
 
 ## Kontrola Python skriptů
 
-Funkce v `build.py` a `check.py` mají dokumentaci a standardní formátování. Oba skripty lze bezpečně importovat; sestavení a kontrola se spustí pouze při jejich přímém spuštění.
+Funkce v `tools/build.py` a `tools/check.py` mají dokumentaci a standardní formátování. Oba skripty lze bezpečně importovat; sestavení a kontrola se spustí pouze při jejich přímém spuštění.
 
 ```sh
 python3 -m pip install pylint
-python3 -m pylint build.py check.py
+python3 -m pylint tools/build.py tools/check.py tools/check_seo.py tools/responsive_images.py
 ```
 
 ## Strukturovaná metadata a sdílení
@@ -67,7 +67,7 @@ Společný náhled pro sdílení je v assets/social-card.png (1200 × 630 px). O
 
 ## SEO a tematické rozcestníky
 
-`seo.json` uchovává SEO názvy kategorií, cestu začátečníka, tematické skupiny a odkazy na domácí scénáře. Úvodní texty HUBů jsou v `obsah/<téma>/index.md` s metadaty `type: hub`, `title`, `seoTitle` (volitelné), `description` a případně `kontrola_zdroju`. Adresář určuje URL HUBu; `index.md` nepřidává do URL další část. Nová témata přidejte do `topics` a doplňte odpovídající Markdown; prázdné archivy se nevytvářejí. Nové integrační průvodce lze přidat pod `obsah/integrace/` a tematické rozcestníky pod `obsah/integrace/<výrobce>/index.md`. Stávající články zůstávají na svých URL.
+`seo.json` uchovává SEO názvy kategorií, cestu začátečníka, tematické skupiny a odkazy na domácí scénáře. Úvodní texty HUBů jsou v `content/<téma>/index.md` s metadaty `type: hub`, `title`, `seoTitle` (volitelné), `description` a případně `kontrola_zdroju`. Adresář určuje URL HUBu; `index.md` nepřidává do URL další část. Nová témata přidejte do `topics` a doplňte odpovídající Markdown; prázdné archivy se nevytvářejí. Nové integrační průvodce lze přidat pod `content/integrace/` a tematické rozcestníky pod `content/integrace/<výrobce>/index.md`. Stávající články zůstávají na svých URL.
 
 Články mohou mít vlastní `seoTitle` a seznam `related` existujících slugů bez lomítka na začátku nebo konci. `autor` může být jméno nebo seznam jmen. Údaje o autorovi a vydání se nevytvářejí automaticky. Volitelný `sourceType` přijímá `official-docs`, `tested`, `editorial` a `mixed`; `testedOn` je popis skutečně použitého testovacího prostředí. `kontrola_zdroju` zůstává datem kontroly dokumentace.
 

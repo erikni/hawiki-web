@@ -1,6 +1,6 @@
 """Check that generated HTML links resolve to local files.
 
-Run after ``build.py``. External URLs and fragment-only links are skipped;
+Run after ``tools/build.py``. External URLs and fragment-only links are skipped;
 relative links and root-relative links are checked against the ``dist`` tree.
 A missing file raises an error and causes a nonzero exit code for Pages builds.
 """
@@ -9,7 +9,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
-OUTPUT_DIRECTORY = Path(__file__).resolve().parent / "dist"
+OUTPUT_DIRECTORY = Path(__file__).resolve().parent.parent / "dist"
 
 
 class LocalLinkChecker(HTMLParser):
@@ -55,7 +55,7 @@ def main() -> None:
     """Validate every generated HTML page, failing if no build output exists."""
     pages = sorted(OUTPUT_DIRECTORY.rglob("*.html"))
     if not pages:
-        raise FileNotFoundError("No generated HTML found; run build.py first.")
+        raise FileNotFoundError("No generated HTML found; run tools/build.py first.")
 
     for page in pages:
         checker = LocalLinkChecker(page, OUTPUT_DIRECTORY)

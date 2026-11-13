@@ -4,12 +4,12 @@ Návrh je připraven lokálně v odděleném checkoutu aktuálního GitHub main 
 
 ## Obsah k přečtení
 
-- [Zigbee: tematický rozcestník](../obsah/zigbee/index.md)
-- [Integrace: tematický rozcestník](../obsah/integrace/index.md)
-- [Automatizace: tematický rozcestník](../obsah/automatizace/index.md)
-- [Jak nainstalovat Home Assistant](../obsah/zaciname/instalace-home-assistant.md)
-- [ZHA vs Zigbee2MQTT](../obsah/zigbee/zha-vs-zigbee2mqtt.md)
-- [O projektu a ověřování obsahu](../obsah/o-projektu/index.md)
+- [Zigbee: tematický rozcestník](../content/zigbee/index.md)
+- [Integrace: tematický rozcestník](../content/integrace/index.md)
+- [Automatizace: tematický rozcestník](../content/automatizace/index.md)
+- [Jak nainstalovat Home Assistant](../content/zaciname/instalace-home-assistant.md)
+- [ZHA vs Zigbee2MQTT](../content/zigbee/zha-vs-zigbee2mqtt.md)
+- [O projektu a ověřování obsahu](../content/o-projektu/index.md)
 
 ## Technické změny a výsledky
 

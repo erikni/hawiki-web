@@ -5,7 +5,7 @@
 - Lokální návrh v odděleném checkoutu `seo-preview`, založený na GitHub main `3ae2a3e`. Původní rozpracovaný adresář `web` zůstává zachován.
 - Jednotný HTTPS/www canonical, přesné homepage title/H1 a přirozený popis (156 znaků); marketingový claim i základní menu zachovány.
 - SEO H1, title a popisy šesti hlavních kategorií v `seo.json`.
-- Kurátorované HUBy `/zigbee/`, `/integrace/`, `/automatizace/`: úvod, podtémata, start, existující návody, problémy a související témata. Markdown zůstává v `obsah/`, `type: hub` využívá společný generátor a šablonu.
+- Kurátorované HUBy `/zigbee/`, `/integrace/`, `/automatizace/`: úvod, podtémata, start, existující návody, problémy a související témata. Markdown zůstává v `content/`, `type: hub` využívá společný generátor a šablonu.
 - Rozhodovací průvodce `/zaciname/instalace-home-assistant/` a srovnání `/zigbee/zha-vs-zigbee2mqtt/`, zdroje a datum jejich kontroly, hlavní ilustrace.
 - Osm skutečných kroků začátečníka; místo chybějícího univerzálního návodu přidání prvního zařízení odkaz na vysvětlení zařízení a integrací. První spuštění Green je prolinkováno z instalace a souvisejících článků.
 - Homepage: Nejčastější témata a Co chcete doma vyřešit, odkazy na dostupný obsah.
@@ -15,7 +15,7 @@
 - Autor může být jedna osoba či seznam osob. Volitelné sourceType/testedOn se zobrazují jen při vyplnění. Žádný autor, publikace, aktualizace ani testovací prostředí nebyly automaticky doplněny.
 - `/o-projektu/` včetně metodiky ověřování a odkazu z patičky.
 - Sitemap obsahuje pouze právě vygenerované veřejné stránky a canonical URL; robots.txt na ni odkazuje. Doplněno ignorování dist/ v Gitu.
-- `check_seo.py` ověřuje SEO/schema/sitemap a je zapojený do build-cloudflare.sh.
+- `tools/check_seo.py` ověřuje SEO/schema/sitemap a je zapojený do build-cloudflare.sh.
 
 ## Existing functionality reused
 
@@ -48,9 +48,9 @@
 
 ## Validation
 
-- Build: 59 stránek. check.py: všechny interní odkazy a soubory procházejí.
-- check_seo.py: všech 59 stránek má jeden H1, vlastní canonical, Open Graph, parsovatelné JSON-LD a shodu se sitemap; robots neblokuje obsah.
-- Python pylint build.py/check.py/check_seo.py: 10.00/10, bez hlášení. Syntaxe ověřena py_compile.
+- Build: 59 stránek. `tools/check.py`: všechny interní odkazy a soubory procházejí.
+- `tools/check_seo.py`: všech 59 stránek má jeden H1, vlastní canonical, Open Graph, parsovatelné JSON-LD a shodu se sitemap; robots neblokuje obsah.
+- Python pylint skriptů v `tools/`: 10.00/10, bez hlášení. Syntaxe ověřena py_compile.
 - Chrome/Playwright: 13 klíčových URL × 4 šířky (360, 390, 768, 1440 px), celkem 52 úspěšných kontrol HTTP 200, H1, title, description, canonical, JSON-LD, načtení obrázků a vodorovného přetékání. Výsledky v seo-validation.json. Screenshoty homepage, Zigbee, cesty začátečníka a článku byly vytvořeny pro vizuální kontrolu.
 - Rozsah hlavního Markdown textu bez metadat a zdrojů: instalace 2894 znaků, ZHA vs Zigbee2MQTT 2718, Zigbee 2214, Integrace 2336, Automatizace 2272. Převzatá technická tvrzení podle dokumentace, nikoli fyzický test zařízení.
 - Nové hlavní ilustrace vizuálně zkontrolovány a přítomny v sestaveném webu; neobsahují přesný screenshot ani fotografii testovaného výrobku.
