@@ -19,7 +19,7 @@ Chcete připojit Zigbee čidla a světla přímo k Home Assistant, nebo budujete
 
 ZBT-2 podporuje **Zigbee 3.0 nebo Thread**, nikoli oba protokoly současně. Pokud chcete vlastní Zigbee síť i vlastní Thread rádio, potřebujete dvě samostatná rádia. Pro Thread ale můžete využít i vhodný border router, který už doma máte.
 
-Pro Zigbee lze ZBT-2 použít jako koordinátor s integrací **ZHA**. Dokumentace Home Assistant jej doporučuje pro novou Zigbee síť. Home Assistant Green nemá Zigbee rádio vestavěné, takže mu tento adaptér doplní potřebné připojení.
+Pro Zigbee lze ZBT-2 použít jako koordinátor s integrací **ZHA**. Dokumentace Home Assistant jej doporučuje pro novou Zigbee síť. [Home Assistant Green](/co-koupit/home-assistant-green/) nemá Zigbee rádio vestavěné, takže mu tento adaptér doplní potřebné připojení.
 
 V režimu Thread slouží adaptér s příslušným softwarem Home Assistant jako součást **Thread border routeru**, který propojuje Thread síť s domácí sítí. Pro tuto cestu počítejte s nastavením aplikace OpenThread Border Router podle návodu výrobce.
 

@@ -16,7 +16,7 @@ Po aktualizaci něco nefunguje, odejde disk nebo přestane reagovat celé zaří
 
 **Obnova vrací stav z okamžiku zálohování.** Změny provedené později v ní nejsou. Cílem je zachránit to, co bylo skutečně zálohované; žádná záloha neslibuje ochranu před úplně všemi situacemi.
 
-Tento průvodce je zaměřený na **Home Assistant OS**, například na Home Assistant Green. U jiného typu instalace použijte odpovídající dokumentaci.
+Tento průvodce je zaměřený na **Home Assistant OS**, například na [Home Assistant Green](/co-koupit/home-assistant-green/). U jiného typu instalace použijte odpovídající dokumentaci.
 
 ## Vyberte svou situaci
 
