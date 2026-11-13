@@ -21,7 +21,7 @@ Než nakoupíte, projděte si [co budete potřebovat](/zaciname/co-budu-potrebov
 
 ## Home Assistant Green: nejméně přípravy
 
-Pro začátečníka, který chce hotové řešení. Home Assistant OS je předinstalovaný; zapojíte síť a napájení a dokončíte úvodní nastavení. Výhodou je jednoduchý začátek, nevýhodou nákup samostatné jednotky. Složitost je nízká. Redakční doporučení: zvolte Green, pokud chcete hlavně používat domácnost a méně řešit počítač. Pokračujte na [první spuštění Green](/zaciname/prvni-spusteni/).
+Pro začátečníka, který chce hotové řešení. Home Assistant OS je předinstalovaný; zapojíte síť a napájení a dokončíte úvodní nastavení. Výhodou je jednoduchý začátek, nevýhodou nákup samostatné jednotky. Složitost je nízká. Redakční doporučení: zvolte [Home Assistant Green](/co-koupit/home-assistant-green/), pokud chcete hlavně používat domácnost a méně řešit počítač. Pokračujte na [první spuštění Green](/zaciname/prvni-spusteni/).
 
 ## Raspberry Pi: využití vlastní sestavy
 

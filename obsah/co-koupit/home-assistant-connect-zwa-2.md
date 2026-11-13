@@ -12,7 +12,7 @@ temata:
   - hardware
 ---
 
-Chcete k Home Assistant připojit Z-Wave čidla, zásuvky nebo hlavice? **Home Assistant Connect ZWA-2** je oficiální USB adaptér, který počítači s Home Assistant přidá Z-Wave rádio. Nenahrazuje Home Assistant Green ani jiný počítač, na kterém systém běží. Smysl má tehdy, když chcete začít se Z-Wave nebo zvažujete výměnu stávajícího adaptéru.
+Chcete k Home Assistant připojit Z-Wave čidla, zásuvky nebo hlavice? **Home Assistant Connect ZWA-2** je oficiální USB adaptér, který počítači s Home Assistant přidá Z-Wave rádio. Nenahrazuje [Home Assistant Green](/co-koupit/home-assistant-green/) ani jiný počítač, na kterém systém běží. Smysl má tehdy, když chcete začít se Z-Wave nebo zvažujete výměnu stávajícího adaptéru.
 
 ## Co kupujete
 

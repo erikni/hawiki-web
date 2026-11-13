@@ -21,7 +21,7 @@ temata:
 4. Mobil nebo počítač pro nastavení.
 
 ## Jednoduchá cesta: Home Assistant Green
-[Home Assistant Green](https://www.home-assistant.io/green/) má Home Assistant již připravený. Výrobce ho doporučuje jako snadný začátek. Připojí se síťovým kabelem k routeru a k napájení.
+[Home Assistant Green](/co-koupit/home-assistant-green/) má Home Assistant již připravený. Výrobce ho doporučuje jako snadný začátek. Připojí se síťovým kabelem k routeru a k napájení.
 
 Pro připojení zařízení Zigbee budete potřebovat také kompatibilní adaptér, například [Home Assistant Connect ZBT-2](/co-koupit/home-assistant-connect-zbt-2/). Nekupujte senzor jen podle toho, že je označený jako chytrý.
 
