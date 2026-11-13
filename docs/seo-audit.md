@@ -2,7 +2,7 @@
 
 - Základ návrhu: aktuální GitHub main `3ae2a3e`; oddělený checkout `seo-preview`, aktualizovaný pomocí pull --ff-only. Původní web má rozdílnou historii a rozpracované změny; zůstává zachován.
 - Stack: vlastní Python generátor, Markdown 3.8.2, PyYAML, Pygments; statický výstup `dist/`, Cloudflare Pages přes GitHub Actions.
-- Routing: cesta Markdownu v `obsah/` určuje URL s koncovým lomítkem. Kategorie v SECTIONS, další stránky generuje build.py.
+- Routing: cesta Markdownu v `content/` určuje URL s koncovým lomítkem. Kategorie v SECTIONS, další stránky generuje `tools/build.py`.
 - Metadata: společná šablona title + suffix, description, canonical HTTPS/www ze site.json, Open Graph včetně obrázku.
 - Structured data: Article, citace, témata a volitelný autor/publikace/aktualizace. Chybí WebSite, Organization a BreadcrumbList.
 - Breadcrumbs: viditelně Domů / kategorie, bez aktuální stránky a JSON-LD.

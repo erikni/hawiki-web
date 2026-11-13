@@ -1,7 +1,7 @@
 """Generate the static HAwiki.cz website from Markdown articles.
 
-Run ``python3 build.py`` from any working directory. Source content lives in
-``obsah/``, HTML source templates in ``sablony/`` and shared assets in ``assets/``.
+Run ``python3 tools/build.py`` from any working directory. Source content lives in
+``content/``, HTML source templates in ``sablony/`` and shared assets in ``assets/``.
 Generated pages and the search index are written to ``dist/``.
 """
 
@@ -15,7 +15,7 @@ from string import Template
 import sys
 import xml.etree.ElementTree as ET
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / ".vendor"))
 from responsive_images import render_hero
 OUTPUT_DIRECTORY = ROOT / "dist"
@@ -69,7 +69,7 @@ def load_pages() -> list[dict[str, str]]:
     yaml = importlib.import_module("yaml")
     pages = []
 
-    for path in sorted((ROOT / "obsah").rglob("*.md")):
+    for path in sorted((ROOT / "content").rglob("*.md")):
         _, front_matter, body = path.read_text(encoding="utf-8").split("---", 2)
         metadata = yaml.safe_load(front_matter)
         if not isinstance(metadata, dict):
@@ -80,7 +80,7 @@ def load_pages() -> list[dict[str, str]]:
         if missing:
             raise ValueError(f"{path}: missing metadata: {', '.join(missing)}")
 
-        slug = path.relative_to(ROOT / "obsah").with_suffix("").as_posix()
+        slug = path.relative_to(ROOT / "content").with_suffix("").as_posix()
         converter = markdown.Markdown(
             extensions=["toc", "tables", "fenced_code", "codehilite", "admonition"]
         )
@@ -496,12 +496,12 @@ def write_hubs(pages: list) -> None:
     """Render editorial Markdown introductions and configured article groups."""
     yaml = importlib.import_module("yaml")
     markdown = importlib.import_module("markdown")
-    for path in sorted((ROOT / "obsah").rglob("index.md")):
+    for path in sorted((ROOT / "content").rglob("index.md")):
         _, front_matter, source = path.read_text(encoding="utf-8").split("---", 2)
         metadata = yaml.safe_load(front_matter)
         if metadata.get("type") != "hub":
             continue
-        route = path.parent.relative_to(ROOT / "obsah").as_posix()
+        route = path.parent.relative_to(ROOT / "content").as_posix()
         content = markdown.markdown(source, extensions=["tables"])
         topic = SEO["topics"].get(route)
         if topic:
