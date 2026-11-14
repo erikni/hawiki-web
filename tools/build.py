@@ -1,7 +1,7 @@
 """Generate the static HAwiki.cz website from Markdown articles.
 
 Run ``python3 tools/build.py`` from any working directory. Source content lives in
-``content/``, HTML source templates in ``sablony/`` and shared assets in ``assets/``.
+``content/``, HTML source templates in ``templates/`` and shared assets in ``assets/``.
 Generated pages and the search index are written to ``dist/``.
 """
 
@@ -54,7 +54,7 @@ def render_template(name: str, **values: str) -> str:
     Callers escape plain text before passing it here. Rendered Markdown and
     other HTML fragments are intentionally inserted unchanged.
     """
-    path = ROOT / "sablony" / f"{name}.html"
+    path = ROOT / "templates" / f"{name}.html"
     return Template(path.read_text(encoding="utf-8")).substitute(values)
 
 
