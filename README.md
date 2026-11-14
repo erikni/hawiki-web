@@ -2,6 +2,20 @@
 
 Statický český průvodce Home Assistant pro běžné domácnosti.
 
+## Vývojový proces
+
+Repozitář používá
+[SDLC-AI v1.2.1](https://github.com/erikni/sdlc-ai/releases/tag/v1.2.1).
+Projektová konfigurace a vstupní postup pro AI agenty jsou v
+[`AGENTS.md`](AGENTS.md). Vlastní metodika zůstává pouze v repozitáři
+[`erikni/sdlc-ai`](https://github.com/erikni/sdlc-ai); odkazy na pravidla míří
+na konkrétní tag, nikoli na průběžně měněnou větev. Duplicitní místní kopie
+metodických dokumentů se v tomto repozitáři neudržují.
+
+Přechod na jinou verzi SDLC-AI se provádí samostatným issue a pull requestem.
+Současně se aktualizují všechny odkazy na verzi v `AGENTS.md` a tomto README
+a ověří se release notes nové verze.
+
 ## Sestavení
 
 ```sh
