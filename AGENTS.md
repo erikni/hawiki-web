@@ -14,7 +14,7 @@ REPOSITORY_NAME=hawiki-web
 LANG=cs
 SITE_URL=https://www.hawiki.cz
 DEPLOY_PROVIDER=cloudflare
-PREVIEW_URL_PATTERN=*-hawiki-web.gemini77.workers.dev
+PREVIEW_URL_PATTERN=*-hawiki-web.sdlc-ai.workers.dev
 CLOUDFLARE_CONFIG_PATH=wrangler.jsonc
 CLOUDFLARE_TYPE=WORKERS
 ```
