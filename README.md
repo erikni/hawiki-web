@@ -1,20 +1,23 @@
 # HA wiki
 
-Statický český průvodce Home Assistant pro běžné domácnosti.
+Statický vícejazyčný průvodce Home Assistant pro běžné domácnosti. Česká verze
+běží na `www.hawiki.cz`, anglická verze se připravuje pro `hawiki.eu`.
 
 ## Sestavení
 
 ```sh
 python3 -m pip install --target .vendor -r requirements.txt
-python3 tools/build.py
-python3 -m http.server 8000 --directory dist
+python3 tools/build_all.py
+python3 -m http.server 8000 --directory dist/__sites/cs
 ```
 
-Otevřete http://localhost:8000. Výstup v `dist/` lze hostovat jako běžný statický web v kořeni domény. Obsah se nepřipravuje za běhu na serveru.
+Výstup je v `dist/__sites/cs/` a `dist/__sites/eu/`. V produkci jej obsluhuje
+jeden Worker, který podle hostname vybere správný interní kořen. Pro samostatný
+lokální náhled lze jako kořen HTTP serveru použít jeden z těchto adresářů.
 
 ## Úpravy obsahu
 
-Články jsou v `content/`. Adresář a název Markdown souboru určují adresu článku. Každý článek začíná YAML metadaty: title, description, cas, obtiznost, kontrola_zdroju a stav. Nepoužívejte označení „otestováno“, pokud postup nebyl skutečně ověřen na zařízení.
+České články jsou v `content/`, anglické v `content-en/`. Adresář a název Markdown souboru určují adresu článku. Každý článek začíná YAML metadaty: title, description, cas, obtiznost, kontrola_zdroju a stav. Nepoužívejte označení „otestováno“, pokud postup nebyl skutečně ověřen na zařízení.
 
 Šablonu článku najdete v `templates/navod.md`. Vzhled a vyhledávání jsou v `assets/`. Zdrojové HTML šablony společného rozložení, článků, karet a rozcestníků jsou v `templates/`; nejde o vygenerované stránky. Jejich naplnění obsahem zajišťuje `tools/build.py`. Po úpravě znovu spusťte sestavení. Hlavní stránka používá zvolený seznam článků; nové články se automaticky objeví v příslušné sekci a vyhledávání.
 
@@ -26,7 +29,7 @@ Deset úvodních článků vychází z odkazované dokumentace. Postupy nebyly v
 
 ## Doména a barvy
 
-Cílová adresa je https://www.hawiki.cz a je nastavena v `site.json`. Generátor ji používá v kanonických adresách jednotlivých stránek. DNS a hosting musí být připojeny samostatně. Produkční hosting zajišťuje Cloudflare Worker `hawiki-web` se statickými aktivy. Konfigurace Workeru je v `wrangler.jsonc`.
+Cílové adresy a jazyková konfigurace jsou v `sites.json`. Český web používá https://www.hawiki.cz a anglický https://hawiki.eu. Generátor je používá v kanonických adresách jednotlivých stránek. DNS a hosting musí být připojeny samostatně. Produkční hosting zajišťuje Cloudflare Worker `hawiki-web` se statickými aktivy. Konfigurace Workeru je v `wrangler.jsonc`.
 
 Hlavní barva je Home Assistant modrá `#18BCF2`; textové odkazy používají tmavší `#0879A6` pro lepší čitelnost. Zdroj palety: https://github.com/home-assistant/frontend/blob/dev/src/resources/theme/color/core.globals.ts
 
@@ -36,15 +39,15 @@ https://github.com/erikni/hawiki-web obsahuje pouze zdroje, Markdown články a 
 
 ## Cloudflare Workers
 
-Produkční Worker se jmenuje `hawiki-web`. Soubor `wrangler.jsonc` určuje název Workeru a adresář `dist/` se statickými aktivy. Produkční workflow `.github/workflows/deploy-cloudflare-workers.yml` sestaví a zkontroluje web a pouze z větve `main` spustí `wrangler deploy`.
+Produkční Worker se jmenuje `hawiki-web`. Soubor `wrangler.jsonc` určuje název Workeru a adresář `dist/` se statickými aktivy. `worker.js` směruje českou doménu do `__sites/cs` a evropskou doménu do `__sites/eu`. Produkční workflow `.github/workflows/deploy-cloudflare-workers.yml` sestaví a zkontroluje web a pouze z větve `main` spustí `wrangler deploy`.
 
-Workflow `.github/workflows/preview-cloudflare-workers.yml` se spouští pro pull requesty ze stejného repozitáře. Příkaz `wrangler preview --name pr-<číslo-PR>` vytvoří oddělené Workers Preview bez změny produkčního provozu. Skutečnou URL zveřejní Cloudflare Wrangler Action v GitHub Deployment a souhrnu běhu. Očekávaný vzor je `*-hawiki-web.gemini77.workers.dev`; před schválením mergu je nutné ověřit konkrétní adresu.
+Workflow `.github/workflows/preview-cloudflare-workers.yml` se spouští pro pull requesty ze stejného repozitáře. Příkaz `wrangler preview --name pr-<číslo-PR>` vytvoří oddělené Workers Preview bez změny produkčního provozu. Skutečnou URL zveřejní Cloudflare Wrangler Action v GitHub Deployment a souhrnu běhu. Očekávaný vzor je `*-hawiki-web.gemini77.workers.dev`; před schválením mergu je nutné ověřit konkrétní adresu. Na preview hostname se jazyk volí parametrem `?site=cs` nebo `?site=en`; Worker volbu uloží do krátkodobé cookie pro následné odkazy a assety.
 
 V GitHub repozitáři nastavte secret `CLOUDFLARE_API_TOKEN`. Token musí mít oprávnění upravovat Workers Scripts v účtu, ve kterém je Worker `hawiki-web`. Veřejné ID účtu je uvedeno ve workflow; API token se nesmí zapisovat do repozitáře.
 
 Sestavení zajišťuje `sh build-cloudflare.sh`: nainstaluje knihovny, převede Markdown do HTML a spustí místní kontroly. Při chybě workflow skončí s nenulovým návratovým kódem. Vygenerovaný adresář `dist/` zůstává mimo Git.
 
-Domény `www.hawiki.cz` a `hawiki.cz` se spravují v nastavení produkčního Workeru. Samotná hodnota v `site.json` nenastavuje DNS ani route.
+Domény `www.hawiki.cz`, `hawiki.cz`, `hawiki.eu` a případně `www.hawiki.eu` se spravují v nastavení produkčního Workeru. Apex `hawiki.cz` se přesměruje na `www.hawiki.cz`; `www.hawiki.eu` se přesměruje na `hawiki.eu`. Samotné hodnoty v `sites.json` nenastavují DNS ani route.
 
 Dokumentace: https://developers.cloudflare.com/workers/static-assets/ a https://developers.cloudflare.com/workers/previews/
 
@@ -54,7 +57,7 @@ Funkce v `tools/build.py` a `tools/check.py` mají dokumentaci a standardní for
 
 ```sh
 python3 -m pip install pylint
-python3 -m pylint tools/build.py tools/check.py tools/check_seo.py tools/responsive_images.py
+python3 -m pylint tools/build.py tools/build_all.py tools/check.py tools/check_seo.py tools/responsive_images.py
 ```
 
 ## Strukturovaná metadata a sdílení

@@ -1,11 +1,12 @@
 <!doctype html>
-<html lang="cs" prefix="og: https://ogp.me/ns# article: https://ogp.me/ns/article#">
+<html lang="$html_lang" prefix="og: https://ogp.me/ns# article: https://ogp.me/ns/article#">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>$title</title>
 <meta name="description" content="$description">
 <link rel="canonical" href="$canonical_url">
+$alternate_links
 $open_graph
 $structured_data
 <meta name="theme-color" content="#18bcf2">
@@ -13,7 +14,7 @@ $structured_data
 <link rel="icon" href="/assets/favicon.svg">
 <script src="/assets/search.js" defer></script>
 </head>
-<body>
+<body data-search-count="Počet článků: {count}" data-search-error="Hledání se nepodařilo načíst. Použijte prosím hlavní menu.">
 <a class="skip" href="#obsah">Přejít k obsahu</a>
 <header>
 <a class="brand" href="/">
@@ -21,6 +22,7 @@ $structured_data
 </a>
 <nav aria-label="Hlavní navigace">$navigation</nav>
 <a class="search-link" href="/hledani/">Hledat ↗</a>
+$language_switcher
 </header>
 <main id="obsah">$body</main>
 <footer>

@@ -8,6 +8,7 @@ Generated pages and the search index are written to ``dist/``.
 import html
 import importlib
 import json
+import os
 import re
 from pathlib import Path
 import shutil
@@ -17,35 +18,25 @@ import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / ".vendor"))
-from responsive_images import render_hero
-OUTPUT_DIRECTORY = ROOT / "dist"
-SECTIONS = {
-    "zaciname": ("Začínáme", "Váš první krok k pohodlnější domácnosti."),
-    "co-chci-usnadnit": ("Co chci usnadnit", "Vyberte si podle běžného života."),
-    "co-koupit": ("Co koupit", "Nejdřív potřeba, potom nákup."),
-    "navody": ("Návody", "Malé kroky s konkrétním výsledkem."),
-    "pomoc": ("Pomoc", "Když něco nefunguje, začněte tady."),
-    "novinky": ("Novinky", "Týdenní přehled dění kolem Home Assistant a chytré domácnosti."),
-    "ai": ("AI", "Modely, hlas a agenti pro chytrou domácnost."),
-    "dalsi-moznosti": ("Další možnosti", "Rozšíření pro váš další krok."),
-}
-SEO = json.loads((ROOT / "seo.json").read_text(encoding="utf-8"))
+from responsive_images import render_hero  # pylint: disable=wrong-import-position
+SITE_KEY = os.environ.get("HAWIKI_SITE", "cs")
+SITES = json.loads((ROOT / "sites.json").read_text(encoding="utf-8"))
+if SITE_KEY not in SITES:
+    raise ValueError(f"Unknown HAWIKI_SITE: {SITE_KEY}")
+SITE = SITES[SITE_KEY]
+OUTPUT_DIRECTORY = ROOT / SITE["outputDirectory"]
+CONTENT_DIRECTORY = ROOT / SITE["contentDirectory"]
+STATIC_DIRECTORY = ROOT / SITE["staticDirectory"]
+SECTIONS = {key: tuple(value) for key, value in SITE["sections"].items()}
+SEO = json.loads((ROOT / SITE["seoFile"]).read_text(encoding="utf-8"))
+LOCALE = json.loads((ROOT / "locales" / f"{SITE_KEY}.json").read_text(encoding="utf-8"))
 GENERATED_ROUTES = set()
 
 REQUIRED_METADATA = (
     "title", "description", "cas", "obtiznost", "kontrola_zdroju", "stav",
 )
-PRACTICAL_ARTICLES = {
-    "co-chci-usnadnit/svetla",
-    "navody/lampa-vecer",
-    "pomoc/zalohovani",
-}
-HOMEPAGE_INTEGRATIONS = [
-    ("Google Kalendář", "integrace/google-calendar-home-assistant"),
-    ("MQTT", "integrace/mqtt-home-assistant"),
-    ("SmartThings", "integrace/smartthings-home-assistant"),
-    ("Sonos", "integrace/sonos-home-assistant"),
-]
+PRACTICAL_ARTICLES = set(SITE["homepage"].get("practicalArticles", []))
+HOMEPAGE_INTEGRATIONS = SITE["homepage"].get("integrations", [])
 
 
 def render_template(name: str, **values: str) -> str:
@@ -54,7 +45,8 @@ def render_template(name: str, **values: str) -> str:
     Callers escape plain text before passing it here. Rendered Markdown and
     other HTML fragments are intentionally inserted unchanged.
     """
-    path = ROOT / "templates" / f"{name}.html"
+    localized = ROOT / "templates" / SITE_KEY / f"{name}.html"
+    path = localized if localized.is_file() else ROOT / "templates" / f"{name}.html"
     return Template(path.read_text(encoding="utf-8")).substitute(values)
 
 
@@ -69,7 +61,7 @@ def load_pages() -> list[dict[str, str]]:
     yaml = importlib.import_module("yaml")
     pages = []
 
-    for path in sorted((ROOT / "content").rglob("*.md")):
+    for path in sorted(CONTENT_DIRECTORY.rglob("*.md")):
         _, front_matter, body = path.read_text(encoding="utf-8").split("---", 2)
         metadata = yaml.safe_load(front_matter)
         if not isinstance(metadata, dict):
@@ -80,7 +72,7 @@ def load_pages() -> list[dict[str, str]]:
         if missing:
             raise ValueError(f"{path}: missing metadata: {', '.join(missing)}")
 
-        slug = path.relative_to(ROOT / "content").with_suffix("").as_posix()
+        slug = path.relative_to(CONTENT_DIRECTORY).with_suffix("").as_posix()
         converter = markdown.Markdown(
             extensions=["toc", "tables", "fenced_code", "codehilite", "admonition"]
         )
@@ -95,6 +87,72 @@ def load_pages() -> list[dict[str, str]]:
         })
 
     return pages
+
+
+def translation_index() -> dict[str, dict[str, str]]:
+    """Collect existing localized routes by stable translation key."""
+    yaml = importlib.import_module("yaml")
+    index: dict[str, dict[str, str]] = {}
+    for language, settings in SITES.items():
+        home_key = settings.get("homeTranslationKey")
+        if home_key:
+            index.setdefault(home_key, {})[language] = ""
+        directory = ROOT / settings["contentDirectory"]
+        for path in sorted(directory.rglob("*.md")):
+            parts = path.read_text(encoding="utf-8").split("---", 2)
+            if len(parts) != 3:
+                raise ValueError(f"{path}: invalid front matter")
+            metadata = yaml.safe_load(parts[1])
+            key = metadata.get("translationKey") if isinstance(metadata, dict) else None
+            if not key:
+                continue
+            route = path.relative_to(directory).with_suffix("").as_posix()
+            if route.endswith("/index"):
+                route = route.removesuffix("/index")
+            localized = index.setdefault(key, {})
+            if language in localized:
+                raise ValueError(f"Duplicate translationKey {key!r} for {language}")
+            localized[language] = route
+    return index
+
+
+def public_url(language: str, route: str) -> str:
+    """Return a fully qualified public URL for one localized route."""
+    origin = SITES[language]["url"].rstrip("/")
+    return origin + "/" + (route + "/" if route else "")
+
+
+def render_language_alternates(translation_key: str | None) -> tuple[str, str]:
+    """Render reciprocal hreflang annotations and a visible language switcher."""
+    if not translation_key:
+        return "", ""
+    variants = translation_index().get(translation_key, {})
+    if len(variants) < 2:
+        return "", ""
+    links = []
+    switcher = []
+    names = {"cs": "Česky", "en": "English", "de": "Deutsch", "es": "Español"}
+    for language, route in sorted(variants.items()):
+        url = public_url(language, route)
+        links.append(
+            f'<link rel="alternate" hreflang="{html.escape(language)}" '
+            f'href="{html.escape(url, quote=True)}">'
+        )
+        if language != SITE_KEY:
+            switcher.append(
+                f'<a href="{html.escape(url, quote=True)}" hreflang="{language}" '
+                f'lang="{language}">{html.escape(names.get(language, language))}</a>'
+            )
+    if "en" in variants:
+        links.append(
+            '<link rel="alternate" hreflang="x-default" href="'
+            + html.escape(public_url("en", variants["en"]), quote=True) + '">'
+        )
+    visible = (
+        '<nav class="language-switcher" aria-label="Language">'
+        + "".join(switcher) + "</nav>"
+    ) if switcher else ""
+    return "\n".join(links), visible
 
 
 def render_cards(pages: list[dict[str, str]]) -> str:
@@ -152,17 +210,17 @@ def article_metadata(article: dict, canonical_url: str, config: dict, properties
 def page_metadata(route: str, title: str, description: str,
                   article: dict | None = None, breadcrumb_title: str | None = None) -> tuple:
     """Render Open Graph and schema using the common canonical origin."""
-    config = json.loads((ROOT / "site.json").read_text(encoding="utf-8"))
+    config = SITE
     canonical_url = config["url"] + "/" + (route + "/" if route else "")
     image_url = config["url"].rstrip("/") + "/assets/social-card.png"
     properties = {
         "og:title": title, "og:description": description,
         "og:type": "article" if article else "website",
         "og:url": canonical_url, "og:site_name": config["name"],
-        "og:locale": "cs_CZ", "og:image": image_url,
+        "og:locale": config["ogLocale"], "og:image": image_url,
         "og:image:type": "image/png", "og:image:width": "1200",
         "og:image:height": "630",
-        "og:image:alt": "HAwiki.cz – Home Assistant srozumitelně",
+        "og:image:alt": LOCALE["ogImageAlt"],
     }
     schemas = []
     structured_data = ""
@@ -203,8 +261,7 @@ def write_page(route: str, title: str, description: str, body: str,
     Routes are relative to the output root. An empty route writes the homepage.
     The canonical origin is taken from ``site.json``.
     """
-    config = json.loads((ROOT / "site.json").read_text(encoding="utf-8"))
-    canonical_url = config["url"].rstrip("/") + "/"
+    canonical_url = SITE["url"].rstrip("/") + "/"
     if route:
         canonical_url += route + "/"
     navigation = "".join(
@@ -213,11 +270,20 @@ def write_page(route: str, title: str, description: str, body: str,
     )
     open_graph, structured_data = page_metadata(
         route, title, description, article, options.get("breadcrumb_title"))
+    translation_key = options.get("translation_key") or (
+        article.get("translationKey") if article else None
+    )
+    if not route:
+        translation_key = SITE.get("homeTranslationKey")
+    alternate_links, language_switcher = render_language_alternates(translation_key)
     document = render_template(
         "layout",
-        title=html.escape(title + " | " + config["name"]),
+        html_lang=html.escape(SITE["language"]),
+        title=html.escape(title + " | " + SITE["name"]),
         description=html.escape(description),
         canonical_url=html.escape(canonical_url),
+        alternate_links=alternate_links,
+        language_switcher=language_switcher,
         navigation=navigation,
         open_graph=open_graph,
         structured_data=structured_data,
@@ -246,7 +312,7 @@ def write_articles(pages: list[dict[str, str]]) -> None:
             hero_image=render_hero(page, ROOT, OUTPUT_DIRECTORY),
             review_date=html.escape(page["kontrola_zdroju"]),
             topic_labels=(
-                '<ul class="topic-labels" aria-label="Témata článku">'
+                '<ul class="topic-labels" aria-label="' + html.escape(LOCALE["topicsAria"]) + '">'
                 + "".join(
                     render_topic_label(topic)
                     for topic in page.get("temata", [])
@@ -275,7 +341,8 @@ def write_sections(pages: list[dict[str, str]]) -> None:
                 '<section class="directory-callout" aria-labelledby="navody-integrace">'
                 '<div><span class="eyebrow">PROPOJENÍ ZAŘÍZENÍ A SLUŽEB</span>'
                 '<h2 id="navody-integrace">Hledáte konkrétní integraci?</h2>'
-                '<p>Vyberte zařízení nebo službu a zjistěte, jak je propojit s Home Assistantem.</p>'
+                '<p>Vyberte zařízení nebo službu a zjistěte, jak je propojit '
+                's Home Assistantem.</p>'
                 '</div><a class="button" href="/integrace/">Prohlédnout integrace →</a>'
                 '</section>'
             )
@@ -308,9 +375,10 @@ def write_homepage(pages: list[dict[str, str]]) -> None:
         topic_links=render_topic_links(),
         integration_links=render_link_list(HOMEPAGE_INTEGRATIONS),
         use_cases=render_link_list(SEO["useCases"]),
-        starter_cards=render_cards(
-            [page for page in pages if page["slug"].startswith("zaciname/")]
-        ),
+        starter_cards=render_cards([
+            page for page in pages
+            if page["slug"].startswith(next(iter(SECTIONS)) + "/")
+        ]),
         news_cards=render_cards(sorted(
             [page for page in pages if page["slug"].startswith("novinky/")],
             key=lambda page: page["slug"], reverse=True,
@@ -321,9 +389,8 @@ def write_homepage(pages: list[dict[str, str]]) -> None:
     )
     write_page(
         "",
-        "Home Assistant česky: návody pro chytrou domácnost",
-        "Home Assistant česky: návody, výběr zařízení a automatizace krok za krokem. "
-        "Zjistěte, jak může chytrá domácnost usnadnit každý den, a začněte jednou změnou.",
+        SITE["homepage"]["title"],
+        SITE["homepage"]["description"],
         body,
     )
 
@@ -331,7 +398,8 @@ def write_homepage(pages: list[dict[str, str]]) -> None:
 def write_search(pages: list[dict[str, str]]) -> None:
     """Generate the search page and the article metadata consumed by its script."""
     write_page(
-        "hledani", "Hledání", "Najděte návod podle toho, co potřebujete.",
+        "hledani" if SITE_KEY == "cs" else "search",
+        LOCALE["searchTitle"], LOCALE["searchDescription"],
         render_template("search"),
     )
     index = [
@@ -359,8 +427,9 @@ def render_editorial_metadata(page: dict) -> str:
     """Display only known authors, editorial dates and declared verification."""
     entries = []
     if page.get("autor"):
-        entries.append("Autor: " + ", ".join(author_names(page)))
-    for key, label in (("publikovano", "Publikováno: "), ("aktualizovano", "Aktualizováno: ")):
+        entries.append(LOCALE["author"] + ", ".join(author_names(page)))
+    for key, label in (("publikovano", LOCALE["published"]),
+                       ("aktualizovano", LOCALE["updated"])):
         if page.get(key):
             entries.append(label + str(page[key]))
     source_labels = {
@@ -369,9 +438,9 @@ def render_editorial_metadata(page: dict) -> str:
     if page.get("sourceType"):
         if page["sourceType"] not in source_labels:
             raise ValueError(f'{page["slug"]}: unsupported sourceType')
-        entries.append("Typ: " + source_labels[page["sourceType"]])
+        entries.append(LOCALE["type"] + source_labels[page["sourceType"]])
     if page.get("testedOn"):
-        entries.append("Testováno na: " + str(page["testedOn"]))
+        entries.append(LOCALE["testedOn"] + str(page["testedOn"]))
     if not entries:
         return ""
     return '<p class="review">' + " · ".join(html.escape(entry) for entry in entries) + '</p>'
@@ -386,7 +455,7 @@ def section_label(section: str) -> str:
 
 def breadcrumb_items(route: str, title: str) -> list:
     """Use the same complete breadcrumb path for visible HTML and JSON-LD."""
-    items = [("HAwiki", "")]
+    items = [(LOCALE["homeLabel"], "")]
     parts = route.split("/")
     for index in range(1, len(parts)):
         parent = "/".join(parts[:index])
@@ -398,7 +467,11 @@ def breadcrumb_items(route: str, title: str) -> list:
 def render_breadcrumbs(route: str, title: str) -> str:
     """Render navigation with an accessible current-page label."""
     items = breadcrumb_items(route, title)
-    return '<nav class="crumb" aria-label="Drobečková navigace"><ol>' + "".join(
+    opening = (
+        '<nav class="crumb" aria-label="'
+        + html.escape(LOCALE["breadcrumbAria"]) + '"><ol>'
+    )
+    return opening + "".join(
         '<li>' + ('<span aria-current="page">' + html.escape(label) + '</span>'
         if index == len(items) - 1 else
         f'<a href="/{path + "/" if path else ""}">{html.escape(label)}</a>') + '</li>'
@@ -438,7 +511,11 @@ def learning_steps(pages: list) -> list:
 
 def render_learning_path(pages: list) -> str:
     """Render the ordered beginner path above the existing article listing."""
-    return '<section class="learning-path"><h2>Vaše cesta krok za krokem</h2><ol>' + "".join(
+    opening = (
+        '<section class="learning-path"><h2>'
+        + html.escape(LOCALE["learningHeading"]) + '</h2><ol>'
+    )
+    return opening + "".join(
         f'<li><a href="/{slug}/">{html.escape(label)}</a></li>'
         for label, slug in learning_steps(pages)
     ) + '</ol></section>'
@@ -478,16 +555,22 @@ def render_next_steps(page: dict, pages: list) -> str:
     positions = [index for index, (_, slug) in enumerate(path) if slug == page["slug"]]
     if positions:
         index = positions[0]
-        for position, label in ((index - 1, "← Předchozí krok: "), (index + 1, "Další krok → ")):
+        for position, label in ((index - 1, LOCALE["previousStep"]),
+                                (index + 1, LOCALE["nextStep"])):
             if 0 <= position < len(path):
                 name, slug = path[position]
                 links.append((label + name, slug))
     topics = page_topics(page)
     for route in topics:
-        links.append(("Téma: " + SEO["topics"][route]["label"], route))
+        links.append((LOCALE["topic"] + SEO["topics"][route]["label"], route))
     related = related_articles(page, pages, topics)
-    return '<section class="next-steps"><h2>Co dál</h2>' + render_link_list(links) + (
-        '<h3>Související návody</h3>' + render_link_list([
+    opening = (
+        '<section class="next-steps"><h2>'
+        + html.escape(LOCALE["nextStepsHeading"]) + '</h2>'
+    )
+    return opening + render_link_list(links) + (
+        '<h3>' + html.escape(LOCALE["relatedHeading"]) + '</h3>'
+        + render_link_list([
             (item["title"], item["slug"]) for item in related[:3]]) if related else ""
     ) + '</section>'
 
@@ -496,12 +579,12 @@ def write_hubs(pages: list) -> None:
     """Render editorial Markdown introductions and configured article groups."""
     yaml = importlib.import_module("yaml")
     markdown = importlib.import_module("markdown")
-    for path in sorted((ROOT / "content").rglob("index.md")):
+    for path in sorted(CONTENT_DIRECTORY.rglob("index.md")):
         _, front_matter, source = path.read_text(encoding="utf-8").split("---", 2)
         metadata = yaml.safe_load(front_matter)
         if metadata.get("type") != "hub":
             continue
-        route = path.parent.relative_to(ROOT / "content").as_posix()
+        route = path.parent.relative_to(CONTENT_DIRECTORY).as_posix()
         content = markdown.markdown(source, extensions=["tables"])
         topic = SEO["topics"].get(route)
         if topic:
@@ -521,7 +604,7 @@ def write_hubs(pages: list) -> None:
             description=html.escape(metadata["description"]), content=content,
             breadcrumbs=render_breadcrumbs(route, metadata["title"]),
             review_metadata=(
-                '<p class="review">Kontrola zdrojů: <time datetime="'
+                '<p class="review">' + html.escape(LOCALE["sourceReview"]) + '<time datetime="'
                 + html.escape(metadata["kontrola_zdroju"]) + '">'
                 + html.escape(metadata["kontrola_zdroju"]) + '</time></p>'
             ) if metadata.get("kontrola_zdroju") else "")
@@ -531,9 +614,7 @@ def write_hubs(pages: list) -> None:
 
 def write_sitemap() -> None:
     """Include only indexable routes generated in this build, never stale files."""
-    origin = json.loads((ROOT / "site.json").read_text(encoding="utf-8"))["url"]
-    if origin != "https://www.hawiki.cz":
-        raise ValueError("Canonical hostname must be https://www.hawiki.cz")
+    origin = SITE["url"]
     ET.register_namespace("", "http://www.sitemaps.org/schemas/sitemap/0.9")
     namespace = "{http://www.sitemaps.org/schemas/sitemap/0.9}"
     sitemap = ET.Element(namespace + "urlset")
@@ -546,7 +627,7 @@ def write_sitemap() -> None:
 
 def main() -> None:
     """Build articles, section listings, homepage, search index and shared assets."""
-    OUTPUT_DIRECTORY.mkdir(exist_ok=True)
+    OUTPUT_DIRECTORY.mkdir(parents=True, exist_ok=True)
     GENERATED_ROUTES.clear()
     pages = load_pages()
     write_articles(pages)
@@ -555,9 +636,9 @@ def main() -> None:
     write_search(pages)
     write_hubs(pages)
     shutil.copytree(ROOT / "assets", OUTPUT_DIRECTORY / "assets", dirs_exist_ok=True)
-    shutil.copytree(ROOT / "static", OUTPUT_DIRECTORY, dirs_exist_ok=True)
+    shutil.copytree(STATIC_DIRECTORY, OUTPUT_DIRECTORY, dirs_exist_ok=True)
     write_sitemap()
-    print(f"Vytvořeno {len(GENERATED_ROUTES)} HTML stránek.")
+    print(f"[{SITE_KEY}] Vytvořeno {len(GENERATED_ROUTES)} HTML stránek.")
 
 
 if __name__ == "__main__":

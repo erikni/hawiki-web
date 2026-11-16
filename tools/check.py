@@ -6,10 +6,12 @@ A missing file raises an error and causes a nonzero exit code for Pages builds.
 """
 
 from html.parser import HTMLParser
+import json
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
 OUTPUT_DIRECTORY = Path(__file__).resolve().parent.parent / "dist"
+ROOT = Path(__file__).resolve().parent.parent
 
 
 class LocalLinkChecker(HTMLParser):
@@ -53,12 +55,16 @@ class LocalLinkChecker(HTMLParser):
 
 def main() -> None:
     """Validate every generated HTML page, failing if no build output exists."""
-    pages = sorted(OUTPUT_DIRECTORY.rglob("*.html"))
+    sites = json.loads((ROOT / "sites.json").read_text(encoding="utf-8"))
+    pages = []
+    for settings in sites.values():
+        site_root = ROOT / settings["outputDirectory"]
+        pages.extend((page, site_root) for page in sorted(site_root.rglob("*.html")))
     if not pages:
         raise FileNotFoundError("No generated HTML found; run tools/build.py first.")
 
-    for page in pages:
-        checker = LocalLinkChecker(page, OUTPUT_DIRECTORY)
+    for page, site_root in pages:
+        checker = LocalLinkChecker(page, site_root)
         checker.feed(page.read_text(encoding="utf-8"))
         checker.close()
     print("Ověřeny odkazy a lokální soubory všech HTML stránek.")

@@ -8,8 +8,9 @@ Při práci podle `GIT.md` používejte následující projektové hodnoty. Jde 
 GITHUB_USERNAME=erikni
 REPOSITORY_NAME=hawiki-web
 SITE_URL=https://www.hawiki.cz
+SITE_URL_EN=https://hawiki.eu
 PREVIEW_URL=*-hawiki-web.gemini77.workers.dev
 CF_WORKER_URI=hawiki-web
 ```
 
-`PREVIEW_URL` je vzor adresy. Před předložením změny ke schválení vždy zjistěte a ověřte skutečnou URL konkrétního preview; wildcard není odkaz na nasazený náhled.
+`PREVIEW_URL` je vzor adresy. Před předložením změny ke schválení vždy zjistěte a ověřte skutečnou URL konkrétního preview; wildcard není odkaz na nasazený náhled. Na vícejazyčném preview použijte `?site=cs` nebo `?site=en` a ověřte oba weby.
