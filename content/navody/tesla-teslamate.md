@@ -14,6 +14,7 @@ temata:
   - "Automatizace"
   - "Teslemetry"
   - "Bluetooth"
+translationKey: "guides.tesla-teslamate"
 ---
 
 ## Co TeslaMate přinese do chytré domácnosti

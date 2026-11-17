@@ -13,6 +13,7 @@ temata:
   - LLM
   - Hlasové ovládání
   - Čeština
+translationKey: "ai.assist-model-voice"
 ---
 
 Když řeknete „Rozsviť v kuchyni“, Home Assistant musí zachytit řeč, pochopit požadavek a provést akci. Hlasový asistent není jeden model: skládá se z několika částí, které lze měnit samostatně.

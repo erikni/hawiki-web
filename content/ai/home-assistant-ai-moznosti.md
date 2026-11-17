@@ -12,6 +12,7 @@ temata:
   - Místní modely
   - Cloudové modely
   - AI agenti
+translationKey: "ai.home-assistant-ai-options"
 ---
 
 AI v Home Assistant může vést rozhovor, zjistit stav zpřístupněných zařízení a provést povel běžným jazykem. Základem je jazykový model (LLM), který zpracovává text. Aby skutečně rozsvítil, musí mít přes integraci povolený nástroj pro ovládání Home Assistant. Odpověď „rozsvítil jsem“ sama nepotvrzuje provedenou akci.

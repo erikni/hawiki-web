@@ -12,6 +12,7 @@ temata:
   - "Samsung TV"
   - "Cloud"
   - "Automatizace"
+translationKey: "integrations.smartthings-home-assistant"
 ---
 
 ## Co propojení přinese

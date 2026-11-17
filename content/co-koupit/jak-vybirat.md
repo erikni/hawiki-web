@@ -8,6 +8,7 @@ stav: "Podle dokumentace"
 temata:
   - "Chytrá zařízení"
   - "Výběr zařízení"
+translationKey: "buying-guide.how-to-choose"
 ---
 
 ## Nejprve účel, potom výrobek

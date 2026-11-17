@@ -14,6 +14,7 @@ temata:
   - Oprávnění
   - Místní modely
   - LM Studio
+translationKey: "ai.mcp-home-assistant"
 ---
 
 AI umí poradit, jak zhasnout světlo. S připojením přes MCP může povel také provést. Vy určujete, které části domácnosti jí zpřístupníte.

@@ -4,6 +4,7 @@ title: "Automatizace v Home Assistant"
 seoTitle: "Automatizace v Home Assistant: světla, topení a upozornění"
 description: "Začněte jedním pravidlem a pokračujte ke světlům, topení nebo upozorněním. Vyberte návod podle toho, co doma potřebujete."
 kontrola_zdroju: "2026-10-08"
+translationKey: "automations.index"
 ---
 
 ## Od přání k jednoduchému pravidlu

@@ -9,6 +9,7 @@ temata:
   - "Pračka"
   - "Upozornění"
   - "Automatizace"
+translationKey: "guides.washing-machine-finished"
 ---
 
 ## Co bude na konci fungovat

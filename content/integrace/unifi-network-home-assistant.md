@@ -20,6 +20,7 @@ related:
   - zaciname/zarizeni-entita-integrace
   - pomoc/automatizace-nefunguje
   - pomoc/vypadek-internetu
+translationKey: "integrations.unifi-network-home-assistant"
 ---
 
 Oficiální integrace **UniFi Network** propojí Home Assistant s aplikací UniFi Network. Umí sledovat přístupové body, switche, brány i připojené klienty. Telefon lze využít pro detekci přítomnosti, u síťových prvků sledovat stav a vytížení a s odpovídajícím oprávněním například vypínat Wi-Fi síť nebo ovládat PoE port.

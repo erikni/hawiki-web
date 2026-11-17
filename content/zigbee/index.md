@@ -4,6 +4,7 @@ title: "Zigbee v Home Assistant: kompletní průvodce"
 seoTitle: "Zigbee v Home Assistant: ZHA, Zigbee2MQTT a návody"
 description: "Vyberte způsob připojení Zigbee zařízení, pochopte síť mesh a pokračujte k vhodnému adaptéru i prvnímu návodu."
 kontrola_zdroju: "2026-10-08"
+translationKey: "zigbee.index"
 ---
 
 ## Co je Zigbee a kde začít

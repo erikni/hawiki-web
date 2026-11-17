@@ -10,6 +10,7 @@ temata:
   - Assist
   - hlasové ovládání
   - hardware
+translationKey: "buying-guide.home-assistant-voice-preview-edition"
 ---
 
 Rozsvítit bez telefonu, zjistit teplotu nebo nastavit časovač: to jsou úkoly pro **Assist**, hlasového asistenta Home Assistant. **Home Assistant Voice Preview Edition** mu přidá mikrofony a reproduktor do místnosti. Před nákupem si ale rozmyslete, kde se bude řeč zpracovávat a které povely chcete používat.

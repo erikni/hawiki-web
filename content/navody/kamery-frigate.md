@@ -13,6 +13,7 @@ temata:
   - "RTSP"
   - "ONVIF"
   - "Lokální provoz"
+translationKey: "guides.frigate-cameras"
 ---
 
 ## Kamera, Frigate a Home Assistant

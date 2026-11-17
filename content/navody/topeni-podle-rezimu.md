@@ -10,6 +10,7 @@ temata:
   - termostat
   - automatizace
   - YAML
+translationKey: "guides.heating-by-mode"
 ---
 
 Každý večer snižujete teplotu na termostatu a ráno ji vracíte zpět? Home Assistant může tyto změny provádět podle času. Začněte jednou místností a jednoduchým plánem. Příklad nastaví od 6:00 cílovou teplotu 21 °C a od 22:00 teplotu 19 °C, každý den stejně. Hodnoty jsou ukázkové; upravte je podle své domácnosti.

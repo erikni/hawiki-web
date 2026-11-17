@@ -8,6 +8,7 @@ stav: "Podle dokumentace"
 temata:
   - "Automatizace"
   - "Řešení problémů"
+translationKey: "help.automation-not-working"
 ---
 
 ## Začněte jedním pravidlem
@@ -45,8 +46,6 @@ Má-li spouštěč dobu trvání, musí stav vydržet celou tuto dobu. Zavření
 Zopakujte situaci, kdy má pravidlo zafungovat, i situaci, kdy zafungovat nemá. U okna vyzkoušejte dlouhé otevření i krátké větrání. Porovnejte skutečný výsledek se záznamem průběhu. Poznamenejte si, co jste změnili; bude se to hodit, pokud se problém vrátí.
 
 ## Zdroje
-
-Ověřeno podle dokumentace 1. října 2026; bez testování na zařízení. Názvy voleb se mohou lišit podle verze a jazyka.
 
 - [Home Assistant: testování a záznamy průběhu](https://www.home-assistant.io/docs/automation/troubleshooting/)
 - [Home Assistant: spouštěče automatizací](https://www.home-assistant.io/docs/automation/trigger/)

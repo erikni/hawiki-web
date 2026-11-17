@@ -7,6 +7,7 @@ cas: "7 minut"
 obtiznost: "Začátečník"
 kontrola_zdroju: "2026-10-06"
 stav: "Podle dokumentace"
+translationKey: "getting-started.what-you-will-need"
 temata:
   - "Home Assistant"
   - "Home Assistant Green"

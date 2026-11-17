@@ -10,6 +10,7 @@ temata:
   - "Patra"
   - "Osvětlení"
   - "YAML"
+translationKey: "guides.areas-and-floors"
 ---
 
 ## Proč rozdělovat domácnost do místností

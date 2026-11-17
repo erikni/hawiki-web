@@ -14,6 +14,7 @@ temata:
   - "LM Studio"
   - "Assist"
   - "Vlastní server"
+translationKey: "ai.local-models-own-ai-server"
 ---
 
 ## Vlastní model a vlastní hlas

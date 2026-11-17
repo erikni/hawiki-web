@@ -10,6 +10,7 @@ temata:
   - "Wi-Fi"
   - "Thread"
   - "Matter"
+translationKey: "buying-guide.zigbee-wifi-thread-matter"
 ---
 
 ## Nejdříve vyberte funkci, potom připojení

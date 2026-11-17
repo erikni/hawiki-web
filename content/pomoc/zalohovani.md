@@ -7,6 +7,7 @@ kontrola_zdroju: "2026-09-30"
 stav: "Podle dokumentace"
 temata:
   - "Zálohování"
+translationKey: "help.backups"
 ---
 
 ## Co vám záloha zachrání

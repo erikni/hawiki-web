@@ -8,6 +8,7 @@ stav: "Ověřeno podle oficiálních zdrojů"
 temata: [Home Assistant, Novinky, Tesla, Shelly, UniFi, AI, Matter]
 obrazek: "/assets/images/novinky-2026-10-14.png"
 obrazek_alt: "Ilustrace chytrého domu s osvětlením, mapou a propojenými spouštěči automatizací"
+translationKey: "news.2026-10-14-week-in-home-assistant"
 ---
 ## Od bety ke stabilní verzi
 

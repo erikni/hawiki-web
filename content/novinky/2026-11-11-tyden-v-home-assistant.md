@@ -8,6 +8,7 @@ stav: "Ověřeno podle oficiálních zdrojů"
 temata: [Home Assistant, Novinky, Marketplace, AI, HAOS, Shelly, UniFi]
 obrazek: "/assets/images/novinky-2026-11-11.png"
 obrazek_alt: "Ilustrace chytrého domu s tržištěm komunitních doplňků, diagnostikou a chráněnou aktualizací domácího serveru"
+translationKey: "news.2026-11-11-week-in-home-assistant"
 ---
 ## Největší vydání přineslo Marketplace
 

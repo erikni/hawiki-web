@@ -10,6 +10,7 @@ stav: "Podle dokumentace"
 temata:
   - "Osvětlení"
   - "Automatizace"
+translationKey: "guides.evening-lamp"
 ---
 
 ## Co bude na konci fungovat

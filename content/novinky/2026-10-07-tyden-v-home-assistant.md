@@ -8,6 +8,7 @@ stav: "Ověřeno podle oficiálních zdrojů"
 temata: [Home Assistant, Novinky, Integrace, Hardware, ESPHome]
 obrazek: "/assets/images/novinky-2026-10-07.png"
 obrazek_alt: "Ilustrace chytrého domu propojeného s mapou, senzorem a vzdáleným přístupem"
+translationKey: "news.2026-10-07-week-in-home-assistant"
 ---
 ## Týden ve znamení příprav
 

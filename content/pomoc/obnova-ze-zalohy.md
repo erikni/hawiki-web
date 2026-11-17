@@ -8,6 +8,7 @@ stav: "Podle dokumentace"
 temata:
   - "Zálohování"
   - "Obnova"
+translationKey: "help.restoring-a-backup"
 ---
 
 ## Když se něco pokazí, začněte v klidu

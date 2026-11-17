@@ -2,6 +2,7 @@
 type: hub
 title: "O projektu HA wiki"
 description: "Český průvodce Home Assistant pro běžné domácnosti. Praktické návody, srozumitelné pojmy a ověřitelné zdroje."
+translationKey: "about.project"
 ---
 
 ## Proč HA wiki existuje
