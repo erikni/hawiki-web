@@ -26,7 +26,7 @@ Nejdříve zařízení a požadovaná funkce, potom koordinátor a software. Nov
 
 Článek: https://www.hawiki.cz/zigbee/
 
-**Vizuál / krátké video:** Tři jednoduché karty: potřeba domácnosti → volba řešení → odkaz na průvodce. Použít modré barvy HAwiki, krátké čitelné popisky a ilustraci. Neoznačovat ukázku za test zařízení.
+**Vizuál / krátké video:** Tři jednoduché karty: potřeba domácnosti → volba řešení → odkaz na průvodce. Použít modré barvy HA wiki, krátké čitelné popisky a ilustraci. Neoznačovat ukázku za test zařízení.
 
 ## Integrace
 
@@ -52,7 +52,7 @@ Integrace propojují zařízení a služby různých výrobců. Začněte konkr�
 
 Článek: https://www.hawiki.cz/integrace/
 
-**Vizuál / krátké video:** Tři jednoduché karty: potřeba domácnosti → volba řešení → odkaz na průvodce. Použít modré barvy HAwiki, krátké čitelné popisky a ilustraci. Neoznačovat ukázku za test zařízení.
+**Vizuál / krátké video:** Tři jednoduché karty: potřeba domácnosti → volba řešení → odkaz na průvodce. Použít modré barvy HA wiki, krátké čitelné popisky a ilustraci. Neoznačovat ukázku za test zařízení.
 
 ## Automatizace
 
@@ -78,7 +78,7 @@ Světla, topení nebo oznámení? Vyberte jednu užitečnou změnu. Rozcestník 
 
 Článek: https://www.hawiki.cz/automatizace/
 
-**Vizuál / krátké video:** Tři jednoduché karty: potřeba domácnosti → volba řešení → odkaz na průvodce. Použít modré barvy HAwiki, krátké čitelné popisky a ilustraci. Neoznačovat ukázku za test zařízení.
+**Vizuál / krátké video:** Tři jednoduché karty: potřeba domácnosti → volba řešení → odkaz na průvodce. Použít modré barvy HA wiki, krátké čitelné popisky a ilustraci. Neoznačovat ukázku za test zařízení.
 
 ## Instalace
 
@@ -104,7 +104,7 @@ Green, Raspberry Pi, mini PC, virtuální stroj, nebo Container? Český průvod
 
 Článek: https://www.hawiki.cz/zaciname/instalace-home-assistant/
 
-**Vizuál / krátké video:** Tři jednoduché karty: potřeba domácnosti → volba řešení → odkaz na průvodce. Použít modré barvy HAwiki, krátké čitelné popisky a ilustraci. Neoznačovat ukázku za test zařízení.
+**Vizuál / krátké video:** Tři jednoduché karty: potřeba domácnosti → volba řešení → odkaz na průvodce. Použít modré barvy HA wiki, krátké čitelné popisky a ilustraci. Neoznačovat ukázku za test zařízení.
 
 ## ZHA vs Zigbee2MQTT
 
@@ -130,4 +130,4 @@ ZHA je integrace v Home Assistantu. Zigbee2MQTT přidává samostatnou službu a
 
 Článek: https://www.hawiki.cz/zigbee/zha-vs-zigbee2mqtt/
 
-**Vizuál / krátké video:** Tři jednoduché karty: potřeba domácnosti → volba řešení → odkaz na průvodce. Použít modré barvy HAwiki, krátké čitelné popisky a ilustraci. Neoznačovat ukázku za test zařízení.
+**Vizuál / krátké video:** Tři jednoduché karty: potřeba domácnosti → volba řešení → odkaz na průvodce. Použít modré barvy HA wiki, krátké čitelné popisky a ilustraci. Neoznačovat ukázku za test zařízení.

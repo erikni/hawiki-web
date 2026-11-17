@@ -1,4 +1,4 @@
-# SEO návrh HAwiki.cz k revizi
+# SEO návrh HA wiki k revizi
 
 Návrh je připraven lokálně v odděleném checkoutu aktuálního GitHub main `3ae2a3e`. Původní rozpracovaný adresář `web` nebyl přepsán. Není vytvořen nový commit ani provedeno nasazení.
 

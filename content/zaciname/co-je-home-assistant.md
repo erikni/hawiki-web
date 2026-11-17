@@ -7,6 +7,7 @@ cas: "5 minut"
 obtiznost: "Začátečník"
 kontrola_zdroju: "2026-09-30"
 stav: "Podle dokumentace"
+translationKey: "getting-started.what-is-home-assistant"
 temata:
   - "Home Assistant"
   - "Začínáme"

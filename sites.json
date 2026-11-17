@@ -1,0 +1,49 @@
+{
+  "cs": {
+    "name": "HA wiki",
+    "url": "https://www.hawiki.cz",
+    "language": "cs",
+    "ogLocale": "cs_CZ",
+    "contentDirectory": "content",
+    "outputDirectory": "dist/__sites/cs",
+    "staticDirectory": "static",
+    "seoFile": "seo.json",
+    "homeTranslationKey": "home",
+    "sections": {
+      "zaciname": ["Začínáme", "Váš první krok k pohodlnější domácnosti."],
+      "co-chci-usnadnit": ["Co chci usnadnit", "Vyberte si podle běžného života."],
+      "co-koupit": ["Co koupit", "Nejdřív potřeba, potom nákup."],
+      "navody": ["Návody", "Malé kroky s konkrétním výsledkem."],
+      "pomoc": ["Pomoc", "Když něco nefunguje, začněte tady."],
+      "novinky": ["Novinky", "Týdenní přehled dění kolem Home Assistant a chytré domácnosti."],
+      "ai": ["AI", "Modely, hlas a agenti pro chytrou domácnost."],
+      "dalsi-moznosti": ["Další možnosti", "Rozšíření pro váš další krok."]
+    },
+    "homepage": {
+      "title": "Home Assistant česky: návody pro chytrou domácnost",
+      "description": "Home Assistant česky: návody, výběr zařízení a automatizace krok za krokem. Zjistěte, jak může chytrá domácnost usnadnit každý den, a začněte jednou změnou.",
+      "practicalArticles": ["co-chci-usnadnit/svetla", "navody/lampa-vecer", "pomoc/zalohovani"],
+      "integrations": [["Google Kalendář", "integrace/google-calendar-home-assistant"], ["MQTT", "integrace/mqtt-home-assistant"], ["SmartThings", "integrace/smartthings-home-assistant"], ["Sonos", "integrace/sonos-home-assistant"]]
+    }
+  },
+  "en": {
+    "name": "HA wiki",
+    "url": "https://hawiki.eu",
+    "language": "en",
+    "ogLocale": "en_GB",
+    "contentDirectory": "content-en",
+    "outputDirectory": "dist/__sites/eu",
+    "staticDirectory": "static-en",
+    "seoFile": "seo.en.json",
+    "homeTranslationKey": "home",
+    "sections": {
+      "getting-started": ["Getting started", "Your first steps towards a more helpful home."]
+    },
+    "homepage": {
+      "title": "Home Assistant guides for a smarter home",
+      "description": "Clear Home Assistant guides for beginners: understand the platform, choose your first device and make one useful improvement at a time.",
+      "practicalArticles": [],
+      "integrations": []
+    }
+  }
+}

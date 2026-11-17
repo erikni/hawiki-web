@@ -20,7 +20,7 @@ Výpadek jednoho senzoru není důvodem hned měnit celou síť. Nejprve zkontro
 
 ## Koordinátor a doporučené vybavení
 
-Vyberte rádio podle podpory v zamýšleném softwaru. Na HAwiki najdete [průvodce Home Assistant Connect ZBT-2](/co-koupit/home-assistant-connect-zbt-2/). Před nákupem zkontrolujte také připojení adaptéru k vašemu počítači a dokumentaci přesného modelu. Jeden návod k produktu není univerzálním příslibem kompatibility.
+Vyberte rádio podle podpory v zamýšleném softwaru. Na HA wiki najdete [průvodce Home Assistant Connect ZBT-2](/co-koupit/home-assistant-connect-zbt-2/). Před nákupem zkontrolujte také připojení adaptéru k vašemu počítači a dokumentaci přesného modelu. Jeden návod k produktu není univerzálním příslibem kompatibility.
 
 ## ZHA nebo Zigbee2MQTT
 

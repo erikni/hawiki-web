@@ -1,0 +1,20 @@
+{
+  "homeLabel": "HA wiki",
+  "topicsAria": "Article topics",
+  "breadcrumbAria": "Breadcrumb",
+  "searchTitle": "Search",
+  "searchDescription": "Find the guide you need.",
+  "author": "Author: ",
+  "published": "Published: ",
+  "updated": "Updated: ",
+  "type": "Type: ",
+  "testedOn": "Tested on: ",
+  "previousStep": "← Previous step: ",
+  "nextStep": "Next step → ",
+  "topic": "Topic: ",
+  "nextStepsHeading": "What next",
+  "relatedHeading": "Related guides",
+  "learningHeading": "Your step-by-step path",
+  "sourceReview": "Sources checked: ",
+  "ogImageAlt": "HA wiki – Home Assistant made clear"
+}

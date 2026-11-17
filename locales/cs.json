@@ -1,0 +1,20 @@
+{
+  "homeLabel": "HA wiki",
+  "topicsAria": "Témata článku",
+  "breadcrumbAria": "Drobečková navigace",
+  "searchTitle": "Hledání",
+  "searchDescription": "Najděte návod podle toho, co potřebujete.",
+  "author": "Autor: ",
+  "published": "Publikováno: ",
+  "updated": "Aktualizováno: ",
+  "type": "Typ: ",
+  "testedOn": "Testováno na: ",
+  "previousStep": "← Předchozí krok: ",
+  "nextStep": "Další krok → ",
+  "topic": "Téma: ",
+  "nextStepsHeading": "Co dál",
+  "relatedHeading": "Související návody",
+  "learningHeading": "Vaše cesta krok za krokem",
+  "sourceReview": "Kontrola zdrojů: ",
+  "ogImageAlt": "HA wiki – Home Assistant srozumitelně"
+}
