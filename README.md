@@ -29,7 +29,7 @@ Deset úvodních článků vychází z odkazované dokumentace. Postupy nebyly v
 
 ## Doména a barvy
 
-Cílové adresy a jazyková konfigurace jsou v `sites.json`. Český web používá https://www.hawiki.cz a anglický https://hawiki.eu. Generátor je používá v kanonických adresách jednotlivých stránek. DNS a hosting musí být připojeny samostatně. Produkční hosting zajišťuje Cloudflare Worker `hawiki-web` se statickými aktivy. Konfigurace Workeru je v `wrangler.jsonc`.
+Cílové adresy a jazyková konfigurace jsou v `sites.json`. Český web používá https://www.hawiki.cz a anglický https://www.hawiki.eu. Generátor je používá v kanonických adresách jednotlivých stránek. Produkční hosting zajišťuje Cloudflare Worker `hawiki-web` se statickými aktivy; routy pro obě domény jsou verzované v `wrangler.jsonc`.
 
 Hlavní barva je Home Assistant modrá `#18BCF2`; textové odkazy používají tmavší `#0879A6` pro lepší čitelnost. Zdroj palety: https://github.com/home-assistant/frontend/blob/dev/src/resources/theme/color/core.globals.ts
 
@@ -47,7 +47,7 @@ V GitHub repozitáři nastavte secret `CLOUDFLARE_API_TOKEN`. Token musí mít o
 
 Sestavení zajišťuje `sh build-cloudflare.sh`: nainstaluje knihovny, převede Markdown do HTML a spustí místní kontroly. Při chybě workflow skončí s nenulovým návratovým kódem. Vygenerovaný adresář `dist/` zůstává mimo Git.
 
-Domény `www.hawiki.cz`, `hawiki.cz`, `hawiki.eu` a případně `www.hawiki.eu` se spravují v nastavení produkčního Workeru. Apex `hawiki.cz` se přesměruje na `www.hawiki.cz`; `www.hawiki.eu` se přesměruje na `hawiki.eu`. Samotné hodnoty v `sites.json` nenastavují DNS ani route.
+Domény `www.hawiki.cz`, `hawiki.cz`, `www.hawiki.eu` a `hawiki.eu` jsou připojené k produkčnímu Workeru pomocí routes v `wrangler.jsonc`. Apex `hawiki.cz` se přesměruje na `www.hawiki.cz`; `hawiki.eu` se přesměruje na `www.hawiki.eu`. Toto směrování odpovídá existujícím Cloudflare redirectům a zabraňuje přesměrovací smyčce.
 
 Dokumentace: https://developers.cloudflare.com/workers/static-assets/ a https://developers.cloudflare.com/workers/previews/
 
