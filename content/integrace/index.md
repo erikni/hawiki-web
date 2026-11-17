@@ -30,7 +30,7 @@ Pokud řešíte kamery, projděte si [úvod do Frigate](/navody/kamery-frigate/)
 
 Zkontrolujte, že zařízení nabízí požadovanou entitu a reaguje na ovládání. Pojmenujte je srozumitelně podle místnosti a účelu. Teprve poté pokračujte k [automatizacím](/automatizace/). Pokud zařízení mizí nebo nereaguje, začněte kontrolou napájení a připojení; při závislosti na cloudu ověřte také internet.
 
-Pro další značky zatím využijte katalog integrací v dokumentaci Home Assistantu. Samostatné průvodce na HAwiki přibudou s dostatkem ověřeného obsahu.
+Pro další značky zatím využijte katalog integrací v dokumentaci Home Assistantu. Samostatné průvodce na HA wiki přibudou s dostatkem ověřeného obsahu.
 
 ## Zdroje
 

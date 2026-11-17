@@ -1,4 +1,4 @@
-"""Generate the static HAwiki.cz website from Markdown articles.
+"""Generate the static HA wiki website from Markdown articles.
 
 Run ``python3 tools/build.py`` from any working directory. Source content lives in
 ``content/``, HTML source templates in ``templates/`` and shared assets in ``assets/``.

@@ -28,7 +28,7 @@ export default {
     const preview = previewSite(request, url);
     const site = HOSTS.get(url.hostname) || preview;
     if (!site) {
-      return new Response("Unknown HAwiki hostname", { status: 421 });
+      return new Response("Unknown HA wiki hostname", { status: 421 });
     }
 
     const selected = url.searchParams.get("site");

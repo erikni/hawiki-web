@@ -1,6 +1,6 @@
 # Canonical hostname: změna v Cloudflare
 
-Generátor používá `https://www.hawiki.cz`. Tento údaj nezajišťuje HTTP redirect. Cloudflare Pages deployment je nakonfigurován v GitHub Actions; doménové redirecty nejsou v repozitáři. Stav živých redirectů se nepodařilo ověřit: proxy vrací CONNECT 500. Nejde o doloženou chybu serveru HAwiki.
+Generátor používá `https://www.hawiki.cz`. Tento údaj nezajišťuje HTTP redirect. Cloudflare Pages deployment je nakonfigurován v GitHub Actions; doménové redirecty nejsou v repozitáři. Stav živých redirectů se nepodařilo ověřit: proxy vrací CONNECT 500. Nejde o doloženou chybu serveru HA wiki.
 
 V Cloudflare zóně **hawiki.cz → Rules → Redirect Rules → Single Redirects** vytvořte pravidlo před obecnými redirecty. Domény musí procházet proxovanou Cloudflare zónou a HTTPS varianta bez www musí mít platný certifikát.
 

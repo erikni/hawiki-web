@@ -1,5 +1,5 @@
 {
-  "homeLabel": "HAwiki",
+  "homeLabel": "HA wiki",
   "topicsAria": "Témata článku",
   "breadcrumbAria": "Drobečková navigace",
   "searchTitle": "Hledání",
@@ -16,5 +16,5 @@
   "relatedHeading": "Související návody",
   "learningHeading": "Vaše cesta krok za krokem",
   "sourceReview": "Kontrola zdrojů: ",
-  "ogImageAlt": "HAwiki.cz – Home Assistant srozumitelně"
+  "ogImageAlt": "HA wiki – Home Assistant srozumitelně"
 }

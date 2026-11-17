@@ -1,5 +1,5 @@
 {
-  "homeLabel": "HAwiki",
+  "homeLabel": "HA wiki",
   "topicsAria": "Article topics",
   "breadcrumbAria": "Breadcrumb",
   "searchTitle": "Search",
@@ -16,5 +16,5 @@
   "relatedHeading": "Related guides",
   "learningHeading": "Your step-by-step path",
   "sourceReview": "Sources checked: ",
-  "ogImageAlt": "HAwiki – Home Assistant made clear"
+  "ogImageAlt": "HA wiki – Home Assistant made clear"
 }

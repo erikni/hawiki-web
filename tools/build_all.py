@@ -1,4 +1,4 @@
-"""Build every configured HAwiki locale into one Workers asset bundle."""
+"""Build every configured HA wiki locale into one Workers asset bundle."""
 
 import json
 import os
