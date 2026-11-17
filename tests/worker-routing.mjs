@@ -25,7 +25,7 @@ let result = await route("https://www.hawiki.cz/navody/");
 assert.equal(result.response.status, 200);
 assert.equal(result.path, "/__sites/cs/navody/");
 
-result = await route("https://hawiki.eu/getting-started/");
+result = await route("https://www.hawiki.eu/getting-started/");
 assert.equal(result.response.status, 200);
 assert.equal(result.path, "/__sites/eu/getting-started/");
 
@@ -33,9 +33,9 @@ result = await route("https://hawiki.cz/navody/?from=apex");
 assert.equal(result.response.status, 308);
 assert.equal(result.response.headers.get("location"), "https://www.hawiki.cz/navody/?from=apex");
 
-result = await route("https://www.hawiki.eu/getting-started/");
+result = await route("https://hawiki.eu/getting-started/");
 assert.equal(result.response.status, 308);
-assert.equal(result.response.headers.get("location"), "https://hawiki.eu/getting-started/");
+assert.equal(result.response.headers.get("location"), "https://www.hawiki.eu/getting-started/");
 
 result = await route("https://preview.hawiki-web.workers.dev/?site=cs");
 assert.equal(result.path, "/__sites/cs/");

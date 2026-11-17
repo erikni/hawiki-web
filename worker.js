@@ -21,8 +21,8 @@ export default {
       url.hostname = "www.hawiki.cz";
       return Response.redirect(url, 308);
     }
-    if (url.hostname === "www.hawiki.eu") {
-      url.hostname = "hawiki.eu";
+    if (url.hostname === "hawiki.eu") {
+      url.hostname = "www.hawiki.eu";
       return Response.redirect(url, 308);
     }
     const preview = previewSite(request, url);
