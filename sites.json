@@ -43,7 +43,7 @@
       "buying-guide": ["Buying guide", "Choose compatible equipment before you buy."],
       "guides": ["Guides", "Practical Home Assistant projects, step by step."],
       "help": ["Help", "Troubleshooting, backups and maintenance."],
-      "news": ["News", "Updates from Home Assistant and the smart-home world."],
+      "news": ["News", "A weekly roundup of Home Assistant and smart-home developments."],
       "ai": ["AI", "Voice, language models and agents for Home Assistant."],
       "more-options": ["More options", "Extend Home Assistant beyond the standard integrations."],
       "integrations": ["Integrations", "Connect devices, services and platforms."],

@@ -59,6 +59,11 @@
       "heading": "Home Assistant automations",
       "title": "Home Assistant automations for a more helpful home",
       "description": "Learn how triggers, conditions and actions make your smart-home devices work together."
+    },
+    "news": {
+      "heading": "Home Assistant news",
+      "title": "Home Assistant news",
+      "description": "Weekly Home Assistant and smart-home news, checked against original sources and explained in plain English."
     }
   },
   "learningPath": [
