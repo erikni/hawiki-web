@@ -37,7 +37,8 @@
     "seoFile": "seo.en.json",
     "homeTranslationKey": "home",
     "sections": {
-      "getting-started": ["Getting started", "Your first steps towards a more helpful home."]
+      "getting-started": ["Getting started", "Your first steps towards a more helpful home."],
+      "news": ["News", "A weekly roundup of Home Assistant and smart-home developments."]
     },
     "homepage": {
       "title": "Home Assistant guides for a smarter home",
