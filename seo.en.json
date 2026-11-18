@@ -4,6 +4,11 @@
       "heading": "Home Assistant for beginners",
       "title": "Home Assistant for beginners: where to start",
       "description": "Start with Home Assistant step by step. Learn what it does, what stays local and how to choose a useful first project."
+    },
+    "news": {
+      "heading": "Home Assistant news",
+      "title": "Home Assistant news",
+      "description": "Weekly Home Assistant and smart-home news, checked against original sources and explained in plain English."
     }
   },
   "learningPath": [["What is Home Assistant?", "getting-started/what-is-home-assistant"]],
