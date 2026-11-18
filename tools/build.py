@@ -37,6 +37,7 @@ REQUIRED_METADATA = (
 )
 PRACTICAL_ARTICLES = set(SITE["homepage"].get("practicalArticles", []))
 HOMEPAGE_INTEGRATIONS = SITE["homepage"].get("integrations", [])
+NEWS_SECTION = SITE["homepage"]["newsSection"]
 
 
 def render_template(name: str, **values: str) -> str:
@@ -380,7 +381,7 @@ def write_homepage(pages: list[dict[str, str]]) -> None:
             if page["slug"].startswith(next(iter(SECTIONS)) + "/")
         ]),
         news_cards=render_cards(sorted(
-            [page for page in pages if page["slug"].startswith("novinky/")],
+            [page for page in pages if page["slug"].startswith(NEWS_SECTION + "/")],
             key=lambda page: page["slug"], reverse=True,
         )[:3]),
         practical_cards=render_cards(
@@ -600,6 +601,15 @@ def write_hubs(pages: list) -> None:
                 [by_slug[slug] for slug in topic["help"]])
             content += '<h2>Související témata</h2>' + render_link_list([
                 (SEO["topics"][key]["label"], key) for key in topic["related"]])
+        else:
+            section_pages = [
+                page for page in pages if page["slug"].startswith(route + "/")
+            ]
+            if section_pages:
+                content += (
+                    '<h2>' + html.escape(LOCALE["sectionArticlesHeading"]) + '</h2>'
+                    + render_cards(section_pages)
+                )
         body = render_template("hub", title=html.escape(metadata["title"]),
             description=html.escape(metadata["description"]), content=content,
             breadcrumbs=render_breadcrumbs(route, metadata["title"]),

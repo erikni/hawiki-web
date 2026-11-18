@@ -20,6 +20,7 @@
       "dalsi-moznosti": ["Další možnosti", "Rozšíření pro váš další krok."]
     },
     "homepage": {
+      "newsSection": "novinky",
       "title": "Home Assistant česky: návody pro chytrou domácnost",
       "description": "Home Assistant česky: návody, výběr zařízení a automatizace krok za krokem. Zjistěte, jak může chytrá domácnost usnadnit každý den, a začněte jednou změnou.",
       "practicalArticles": ["co-chci-usnadnit/svetla", "navody/lampa-vecer", "pomoc/zalohovani"],
@@ -51,6 +52,7 @@
       "about": ["About", "Who runs HA wiki and how its content is prepared."]
     },
     "homepage": {
+      "newsSection": "news",
       "title": "Home Assistant guides for a smarter home",
       "description": "Clear Home Assistant guides for beginners: understand the platform, choose your first device and make one useful improvement at a time.",
       "practicalArticles": ["everyday-needs/lights", "guides/evening-lamp", "help/backups"],
