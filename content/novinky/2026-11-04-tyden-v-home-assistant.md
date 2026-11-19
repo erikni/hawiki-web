@@ -8,6 +8,7 @@ stav: "Ověřeno podle oficiálních zdrojů"
 temata: [Home Assistant, Novinky, ESPHome, AI, Shelly, UniFi, Komunita]
 obrazek: "/assets/images/novinky-2026-11-04.png"
 obrazek_alt: "Ilustrace chytrého domu s uspořádanými zařízeními a bezpečnou aktualizací malé řídicí desky"
+translationKey: "news.2026-11-04-week-in-home-assistant"
 ---
 ## Jména se mění, automatizace zůstávají
 

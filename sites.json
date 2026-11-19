@@ -20,6 +20,7 @@
       "dalsi-moznosti": ["Další možnosti", "Rozšíření pro váš další krok."]
     },
     "homepage": {
+      "newsSection": "novinky",
       "title": "Home Assistant česky: návody pro chytrou domácnost",
       "description": "Home Assistant česky: návody, výběr zařízení a automatizace krok za krokem. Zjistěte, jak může chytrá domácnost usnadnit každý den, a začněte jednou změnou.",
       "practicalArticles": ["co-chci-usnadnit/svetla", "navody/lampa-vecer", "pomoc/zalohovani"],
@@ -38,13 +39,24 @@
     "homeTranslationKey": "home",
     "sections": {
       "getting-started": ["Getting started", "Your first steps towards a more helpful home."],
-      "news": ["News", "A weekly roundup of Home Assistant and smart-home developments."]
+      "everyday-needs": ["Everyday needs", "Choose a useful improvement for daily life."],
+      "buying-guide": ["Buying guide", "Choose compatible equipment before you buy."],
+      "guides": ["Guides", "Practical Home Assistant projects, step by step."],
+      "help": ["Help", "Troubleshooting, backups and maintenance."],
+      "news": ["News", "A weekly roundup of Home Assistant and smart-home developments."],
+      "ai": ["AI", "Voice, language models and agents for Home Assistant."],
+      "more-options": ["More options", "Extend Home Assistant beyond the standard integrations."],
+      "integrations": ["Integrations", "Connect devices, services and platforms."],
+      "zigbee": ["Zigbee", "Build and maintain a dependable Zigbee network."],
+      "automations": ["Automations", "Make devices work together automatically."],
+      "about": ["About", "Who runs HA wiki and how its content is prepared."]
     },
     "homepage": {
+      "newsSection": "news",
       "title": "Home Assistant guides for a smarter home",
       "description": "Clear Home Assistant guides for beginners: understand the platform, choose your first device and make one useful improvement at a time.",
-      "practicalArticles": [],
-      "integrations": []
+      "practicalArticles": ["everyday-needs/lights", "guides/evening-lamp", "help/backups"],
+      "integrations": [["Google Calendar", "integrations/google-calendar-home-assistant"], ["MQTT", "integrations/mqtt-home-assistant"], ["SmartThings", "integrations/smartthings-home-assistant"], ["Sonos", "integrations/sonos-home-assistant"]]
     }
   }
 }

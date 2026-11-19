@@ -5,6 +5,7 @@ cas: "15 minut"
 obtiznost: "Začátečník"
 kontrola_zdroju: "2026-10-01"
 stav: "Podle dokumentace"
+translationKey: "getting-started.home-assistant-mobile-app"
 temata:
   - "Mobilní aplikace"
   - "Začínáme"
@@ -44,8 +45,6 @@ Zkontrolujte Wi-Fi a vyzkoušejte stejnou adresu v prohlížeči telefonu. Hosto
 Samotné připojení doma nezajistí ovládání přes mobilní data. Pro přístup mimo domov potřebujete zvlášť nastavený vzdálený přístup, například Home Assistant Cloud nebo VPN. Tomu věnujeme samostatný článek.
 
 ## Zdroje
-
-Ověřeno podle dokumentace 1. října 2026; postup nebyl vyzkoušen na fyzickém telefonu.
 
 - [Home Assistant: integrace Mobile App a oficiální aplikace](https://www.home-assistant.io/integrations/mobile_app/)
 - [Companion: první připojení a oprávnění](https://companion.home-assistant.io/docs/getting_started/)

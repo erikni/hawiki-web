@@ -14,6 +14,7 @@ temata:
   - "GPU"
   - "Mac mini"
   - "NVIDIA"
+translationKey: "ai.hardware-for-local-models"
 ---
 
 ## Proč provozovat AI doma

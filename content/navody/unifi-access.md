@@ -12,6 +12,7 @@ temata:
   - "Dveře"
   - "Automatizace"
   - "Lokální provoz"
+translationKey: "guides.unifi-access"
 ---
 
 ## Co propojení přinese

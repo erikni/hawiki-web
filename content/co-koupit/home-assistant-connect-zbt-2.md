@@ -11,6 +11,7 @@ temata:
   - Thread
   - Matter
   - hardware
+translationKey: "buying-guide.home-assistant-connect-zbt-2"
 ---
 
 Chcete připojit Zigbee čidla a světla přímo k Home Assistant, nebo budujete síť Thread? **Home Assistant Connect ZBT-2** je oficiální USB adaptér pro tyto dva účely. Doplňuje počítač s Home Assistant, sám systém neprovozuje. Před nákupem si vyberte, jaká zařízení má obsluhovat.

@@ -8,6 +8,7 @@ stav: "Ověřeno podle oficiálních zdrojů"
 temata: [Home Assistant, Novinky, ESPHome, UniFi, Shelly, AI, Hardware]
 obrazek: "/assets/images/novinky-2026-10-27.png"
 obrazek_alt: "Ilustrace chytrého domu s deskou pro vlastní senzory, přístupovou čtečkou a reproduktorem"
+translationKey: "news.2026-10-27-week-in-home-assistant"
 ---
 ## Dvě opravy Core a nové ESPHome
 

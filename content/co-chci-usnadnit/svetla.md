@@ -8,6 +8,7 @@ stav: "Podle dokumentace"
 temata:
   - "Osvětlení"
   - "Automatizace"
+translationKey: "everyday-needs.lights"
 ---
 
 ## Začněte jednou lampou

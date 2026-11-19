@@ -19,6 +19,7 @@ related:
   - zaciname/zarizeni-entita-integrace
   - pomoc/automatizace-nefunguje
   - pomoc/vypadek-internetu
+translationKey: "integrations.sonos-home-assistant"
 ---
 
 Integrace **Sonos** propojí reproduktory Sonos a IKEA SYMFONISK s Home Assistantem. Každý reproduktor získá entitu `media_player`, přes kterou lze ovládat přehrávání a hlasitost, spouštět oblíbenou hudbu, vytvářet skupiny pro více místností nebo přehrát hlasové oznámení. Komunikace se reproduktory probíhá v místní síti; účet hudební služby je ale stále potřeba pro služby, jako je Spotify.

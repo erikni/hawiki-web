@@ -10,6 +10,7 @@ sourceType: "official-docs"
 temata: ["Zigbee", "ZHA", "Zigbee2MQTT", "Integrace"]
 obrazek: "/assets/images/zha-vs-zigbee2mqtt.png"
 obrazek_alt: "Ilustrace dvou cest propojení bezdrátových zařízení s domácností: přímo a prostřednictvím dalších softwarových služeb."
+translationKey: "zigbee.zha-vs-zigbee2mqtt"
 ---
 
 ## Stejná potřeba, dvě cesty připojení

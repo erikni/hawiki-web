@@ -12,6 +12,7 @@ temata:
   - Měření spotřeby
   - Chytré zásuvky
   - Kamery
+translationKey: "buying-guide.shelly-devices-overview"
 ---
 
 Shelly nabízí zařízení pro osvětlení, ovládání spotřebičů, měření elektřiny i hlídání domácnosti. Skupina má sídlo v Bulharsku, tedy v EU; tento údaj není místem výroby konkrétního kusu. Při výběru začněte tím, co chcete doma řešit, a potom ověřte přesný model a jeho připojení k Home Assistant.

@@ -11,6 +11,7 @@ temata:
   - Zigbee
   - Detached
   - Automatizace
+translationKey: "guides.smart-light-conventional-switch"
 ---
 
 Chytrou žárovku nestačí zašroubovat a dál ji vypínat běžným vypínačem. Jakmile vypínač přeruší napájení, světlo přestane komunikovat. Home Assistant ho nezapne, nezmění jas ani barvu. Platí to pro Wi-Fi, Zigbee i světla ovládaná přes Matter. Světlo vypnuté příkazem zůstává napájené; světlo odpojené vypínačem nikoli.

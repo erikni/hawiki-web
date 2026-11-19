@@ -8,6 +8,7 @@ stav: "Podle dokumentace"
 temata:
   - "Únik vody"
   - "Upozornění"
+translationKey: "guides.washing-machine-leak"
 ---
 
 ## Co bude na konci fungovat

@@ -14,6 +14,7 @@ temata:
   - "OpenAI"
   - "Gemini"
   - "Claude"
+translationKey: "ai.cloud-models-quick-start"
 ---
 
 ## Co získáte

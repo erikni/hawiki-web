@@ -8,6 +8,7 @@ stav: "Podle dokumentace"
 temata:
   - "Internet"
   - "Lokální ovládání"
+translationKey: "help.internet-outage"
 ---
 
 ## Internet a domácí síť nejsou totéž

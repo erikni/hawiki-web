@@ -10,6 +10,7 @@ temata:
   - spotřeba
   - Energie
   - YAML
+translationKey: "guides.energy-dashboard"
 ---
 
 Kolik elektřiny spotřebuje domácnost za den a které zařízení se na tom podílí? Home Assistant umí údaje z měřidel zobrazit v panelu **Energie**. Začněte jedním dostupným měřením a další přidávejte postupně. Samotná instalace Home Assistant spotřebu nezměří: potřebujete zařízení nebo službu, které dodávají data přes integraci.

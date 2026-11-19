@@ -8,6 +8,7 @@ stav: "Podle dokumentace"
 temata:
   - "Scény"
   - "Osvětlení"
+translationKey: "guides.evening-scene"
 ---
 
 ## Co bude na konci fungovat

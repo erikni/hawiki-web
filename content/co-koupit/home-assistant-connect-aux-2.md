@@ -14,6 +14,7 @@ temata:
   - "RS-232"
   - "PoE"
   - "hardware"
+translationKey: "buying-guide.home-assistant-connect-aux-2"
 ---
 
 **Home Assistant Connect AUX-2** je malá krabička od Nabu Casa pro propojení starší techniky s Home Assistantem. Umí přehrávat hudbu do receiveru nebo aktivních reproduktorů, ovládat podporovaná zařízení přes sériovou linku a fungovat jako síťové místo pro vybrané USB adaptéry. Není to nový Home Assistant ani zesilovač: potřebuje běžící Home Assistant 2026.9 nebo novější.

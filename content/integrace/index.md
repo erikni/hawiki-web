@@ -4,6 +4,7 @@ title: "Integrace Home Assistant"
 seoTitle: "Home Assistant integrace: zařízení a služby"
 description: "Propojte zařízení a služby různých výrobců. Začněte pojmy, vyberte způsob připojení a pokračujte k existujícím návodům."
 kontrola_zdroju: "2026-10-08"
+translationKey: "integrations.index"
 ---
 
 ## Co integrace znamená

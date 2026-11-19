@@ -19,6 +19,7 @@ related:
   - zaciname/zarizeni-entita-integrace
   - pomoc/automatizace-nefunguje
   - pomoc/vypadek-internetu
+translationKey: "integrations.google-calendar-home-assistant"
 ---
 
 Integrace **Google Calendar** propojí Google Kalendář s Home Assistantem. Každý kalendář z části „Moje kalendáře“ může získat vlastní entitu, například `calendar.rodina`. Události pak uvidíte v přehledu Kalendář a můžete podle jejich začátku nebo konce spouštět automatizace – třeba poslat upozornění 15 minut před schůzkou nebo připravit dům na pravidelnou událost.

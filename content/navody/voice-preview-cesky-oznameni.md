@@ -11,6 +11,7 @@ temata:
   - Hlasová oznámení
   - Automatizace
   - Assist
+translationKey: "guides.voice-preview-czech-announcements"
 ---
 
 Voice Preview Edition umí s nastaveným hlasovým asistentem přijímat české povely a mluvit česky. Může také samo oznámit otevřené okno. Tento postup používá Home Assistant Cloud od Nabu Casa pro rozpoznávání řeči i český hlas. Po zkušebním období vyžaduje předplatné a pro zpracování řeči internet. Zařízení cloud povinně nevyžaduje; místní zpracování potřebuje vlastní nastavení a vhodný výkon serveru.

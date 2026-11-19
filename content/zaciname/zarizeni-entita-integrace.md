@@ -5,6 +5,7 @@ cas: "5 minut čtení"
 obtiznost: "Začátečník"
 kontrola_zdroju: "2026-10-01"
 stav: "Podle dokumentace"
+translationKey: "getting-started.devices-entities-integrations"
 temata:
   - "Zařízení"
   - "Entity"
@@ -54,8 +55,6 @@ Při přidávání karty do [přehledu domácnosti](../../navody/prehled-domacno
 Když návod žádá výběr entity, hledejte především správnou funkci. Samotný podobný název výrobku nestačí. Toto rozlišení usnadní tvorbu přehledů i hledání chyb v automatizacích.
 
 ## Zdroje
-
-Ověřeno podle dokumentace 1. října 2026; ilustrační příklad nebyl testován na zařízení.
 
 - [Home Assistant: základní pojmy](https://www.home-assistant.io/getting-started/concepts-terminology/)
 - [Home Assistant: entity, domény a identifikátory](https://www.home-assistant.io/docs/configuration/entities_domains/)

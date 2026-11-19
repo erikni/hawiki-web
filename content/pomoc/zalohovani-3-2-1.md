@@ -8,6 +8,7 @@ stav: "Podle dokumentace"
 temata:
   - "Zálohování"
   - "Pravidlo 3–2–1"
+translationKey: "help.3-2-1-backups"
 ---
 
 ## Proč nestačí záloha přímo v Home Assistant

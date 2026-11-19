@@ -10,6 +10,7 @@ temata:
   - senzory
   - automatizace
   - YAML
+translationKey: "guides.low-sensor-batteries"
 ---
 
 Čidlo na okně přestane hlásit změny a teprve potom zjistíte, že potřebuje novou baterii. Home Assistant může stav baterie pravidelně kontrolovat. Začněte jedním senzorem: každý večer v 18:00 ověří jeho hodnotu. Zareaguje také při změně údaje baterie. Při 20 % nebo méně zobrazí připomínku přímo v rozhraní Home Assistant.

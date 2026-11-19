@@ -8,6 +8,7 @@ stav: "Podle dokumentace"
 temata:
   - "Přehled domácnosti"
   - "Dashboard"
+translationKey: "guides.home-dashboard"
 ---
 
 ## Co bude na konci fungovat

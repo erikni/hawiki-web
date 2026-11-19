@@ -13,6 +13,7 @@ temata:
   - "Mosquitto"
   - "Automatizace"
   - "Lokální komunikace"
+translationKey: "integrations.mqtt-home-assistant"
 ---
 
 MQTT je lehký způsob, jak si zařízení a služby předávají krátké zprávy. Zařízení zprávu **publikuje** do tématu (topic), broker ji převezme a rozešle odběratelům. Home Assistant tak může místně číst čidla, ovládat zařízení nebo přijímat data z TeslaMate. Integrace MQTT ale není broker: nejsnazší volbou je oficiální aplikace **Mosquitto broker**.

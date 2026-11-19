@@ -11,6 +11,7 @@ temata:
   - "AI"
   - "Ollama"
   - "Místní modely"
+translationKey: "ai.ollama-installation-models-hardware"
 ---
 
 ## Program a model jsou dvě různé věci

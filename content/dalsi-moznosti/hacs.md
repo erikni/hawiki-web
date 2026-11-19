@@ -12,6 +12,7 @@ temata:
   - "Komunitní integrace"
   - "Aplikace"
   - "Studio Code Server"
+translationKey: "more-options.hacs"
 ---
 
 ## HACS a aplikace nejsou totéž

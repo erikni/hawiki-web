@@ -14,6 +14,7 @@ temata:
   - "hardware"
   - "Zigbee"
   - "Matter"
+translationKey: "buying-guide.home-assistant-green"
 ---
 
 **Home Assistant Green** je hotová centrální jednotka s předinstalovaným Home Assistant OS. Zapojíte napájení a síťový kabel, dokončíte průvodce a získáte Home Assistant na samostatném zařízení. Nekupujete však univerzální počítač ani bezdrátovou bránu se všemi rádii. Green je především jednoduchý a úsporný základ, který lze podle potřeby doplnit přes USB.

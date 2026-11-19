@@ -8,6 +8,7 @@ stav: "Redakční doporučení; postup podle dokumentace"
 temata:
   - "Aktualizace"
   - "Údržba"
+translationKey: "help.updating-home-assistant"
 ---
 
 ## Nová verze neznamená, že musíte hned aktualizovat

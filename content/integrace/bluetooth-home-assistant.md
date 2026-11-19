@@ -20,6 +20,7 @@ related:
   - pomoc/zarizeni-nereaguje
   - pomoc/automatizace-nefunguje
   - pomoc/vypadek-internetu
+translationKey: "integrations.bluetooth-home-assistant"
 ---
 
 Integrace **Bluetooth** dává Home Assistantu společnou vrstvu pro místní adaptéry i vzdálené proxy. Vyhledává zařízení v okolí a předává jejich data konkrétním integracím, například BTHome, SwitchBot Bluetooth, Xiaomi BLE nebo Yale Access Bluetooth.

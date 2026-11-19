@@ -8,6 +8,7 @@ stav: "Podle dokumentace"
 temata:
   - "Chytrá zařízení"
   - "Řešení problémů"
+translationKey: "help.device-not-responding"
 ---
 
 ## Nejprve zjistěte rozsah problému

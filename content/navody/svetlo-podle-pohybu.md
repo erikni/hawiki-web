@@ -10,6 +10,7 @@ temata:
   - "Pohybový senzor"
   - "Automatizace"
   - "YAML"
+translationKey: "guides.motion-activated-light"
 ---
 
 ## Co bude na konci fungovat

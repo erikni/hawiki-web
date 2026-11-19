@@ -9,6 +9,7 @@ temata:
   - "Okna"
   - "Upozornění"
   - "Automatizace"
+translationKey: "guides.open-window-alert"
 ---
 
 ## Co bude na konci fungovat

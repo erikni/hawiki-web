@@ -5,13 +5,75 @@
       "title": "Home Assistant for beginners: where to start",
       "description": "Start with Home Assistant step by step. Learn what it does, what stays local and how to choose a useful first project."
     },
+    "about": {
+      "heading": "About HA wiki",
+      "title": "About HA wiki: independent Home Assistant guides",
+      "description": "Learn who runs HA wiki, how its Home Assistant guides are prepared and how technical information is checked."
+    },
+    "everyday-needs": {
+      "heading": "A smarter home for everyday life",
+      "title": "Useful Home Assistant ideas for everyday life",
+      "description": "Choose a practical smart-home improvement based on what you want to make easier."
+    },
+    "buying-guide": {
+      "heading": "Choose compatible smart-home equipment",
+      "title": "Home Assistant buying guide: hardware and protocols",
+      "description": "Compare Home Assistant hardware, radios and connection standards before you buy."
+    },
+    "guides": {
+      "heading": "Practical Home Assistant guides",
+      "title": "Home Assistant guides and automations, step by step",
+      "description": "Build useful dashboards, alerts, lighting and energy automations with clear instructions."
+    },
+    "help": {
+      "heading": "Home Assistant help",
+      "title": "Home Assistant troubleshooting, backups and maintenance",
+      "description": "Solve common problems, protect your backups and keep Home Assistant up to date."
+    },
+    "news": {
+      "heading": "Home Assistant news",
+      "title": "Home Assistant news and weekly updates",
+      "description": "Follow important Home Assistant software, hardware and integration updates."
+    },
+    "ai": {
+      "heading": "AI and Home Assistant",
+      "title": "AI, voice and local language models for Home Assistant",
+      "description": "Understand cloud and local AI options, voice assistants, Ollama and MCP."
+    },
+    "more-options": {
+      "heading": "More Home Assistant options",
+      "title": "Extend Home Assistant with community projects",
+      "description": "Explore carefully selected ways to extend Home Assistant beyond its standard integrations."
+    },
+    "integrations": {
+      "heading": "Home Assistant integrations",
+      "title": "Connect devices and services to Home Assistant",
+      "description": "Connect supported devices, services and platforms through Home Assistant integrations."
+    },
+    "zigbee": {
+      "heading": "Zigbee with Home Assistant",
+      "title": "Zigbee with Home Assistant: coordinators and software",
+      "description": "Choose a Zigbee coordinator and compare ZHA with Zigbee2MQTT."
+    },
+    "automations": {
+      "heading": "Home Assistant automations",
+      "title": "Home Assistant automations for a more helpful home",
+      "description": "Learn how triggers, conditions and actions make your smart-home devices work together."
+    },
     "news": {
       "heading": "Home Assistant news",
       "title": "Home Assistant news",
       "description": "Weekly Home Assistant and smart-home news, checked against original sources and explained in plain English."
     }
   },
-  "learningPath": [["What is Home Assistant?", "getting-started/what-is-home-assistant"]],
+  "learningPath": [
+    ["What is Home Assistant?", "getting-started/what-is-home-assistant"],
+    ["What you need to get started", "getting-started/what-you-will-need"],
+    ["Installing Home Assistant", "getting-started/installing-home-assistant"],
+    ["First start with Home Assistant Green", "getting-started/first-start"],
+    ["Home Assistant on your phone", "getting-started/home-assistant-mobile-app"],
+    ["Devices, entities and integrations", "getting-started/devices-entities-and-integrations"]
+  ],
   "topics": {},
   "useCases": []
 }

@@ -8,6 +8,7 @@ stav: "Ověřeno podle oficiálních zdrojů"
 temata: [Home Assistant, Novinky, Shelly, UniFi, AI, Integrace, Hardware]
 obrazek: "/assets/images/novinky-2026-10-21.png"
 obrazek_alt: "Ilustrace chytrého domu s elektroměrem, síťovou kamerou a symbolem hlasového asistenta"
+translationKey: "news.2026-10-21-week-in-home-assistant"
 ---
 ## Týden oprav a měření spotřeby
 

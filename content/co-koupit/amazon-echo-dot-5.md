@@ -10,6 +10,7 @@ temata:
   - Alexa
   - Hlasové ovládání
   - Home Assistant Cloud
+translationKey: "buying-guide.amazon-echo-dot-5"
 ---
 
 Amazon Echo Dot 5 je malý chytrý reproduktor s hlasovou asistentkou Alexa. Hodí se pro hudbu, časovače a hlasové ovládání domácnosti. Po propojení může ovládat také zařízení v Home Assistant. Jde o výrobek americké společnosti Amazon, která má centrály v Seattlu a Arlingtonu; tento údaj neříká, kde byl konkrétní kus vyroben.

@@ -9,6 +9,7 @@ temata:
   - vzdálený přístup
   - Home Assistant Cloud
   - zabezpečení
+translationKey: "guides.remote-access"
 ---
 
 Chcete cestou z práce zkontrolovat teplotu nebo zjistit, zda zůstalo rozsvíceno? Home Assistant je ve výchozím nastavení dostupný v domácí síti. Pro připojení odjinud potřebuje další způsob přístupu. Samotná instalace mobilní aplikace nestačí.

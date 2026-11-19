@@ -6,6 +6,7 @@ cas: "5 minut čtení"
 obtiznost: "Začátečník"
 kontrola_zdroju: "2026-10-08"
 stav: "Podle dokumentace"
+translationKey: "getting-started.installing-home-assistant"
 sourceType: "official-docs"
 temata: ["Home Assistant", "Instalace", "Hardware"]
 obrazek: "/assets/images/instalace-home-assistant.png"
